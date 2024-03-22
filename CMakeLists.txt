@@ -3,4 +3,9 @@ project(Practica2EDD)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Practica2EDD main.cpp)
+add_executable(Practica2EDD main.cpp
+        ArbolAVL.cpp
+        ArbolAVL.h
+        Contacto.cpp
+        Contacto.h
+)

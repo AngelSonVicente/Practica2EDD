@@ -1,4 +1,4 @@
-# Install script for directory: /home/angel/CLionProjects/Practica2EDD
+# Install script for directory: /home/angel/EDD/Practica2EDD
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/angel/CLionProjects/Practica2EDD/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/angel/EDD/Practica2EDD/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
