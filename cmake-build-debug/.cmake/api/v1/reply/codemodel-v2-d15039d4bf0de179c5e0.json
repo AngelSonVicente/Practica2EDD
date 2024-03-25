@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.27"
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Practica2EDD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Practica2EDD-Debug-b45f66b44913abcb3201.json",
+					"jsonFile" : "target-Practica2EDD-Debug-9ac10710a9aeee6b9268.json",
 					"name" : "Practica2EDD",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/angel/EDD/Practica2EDD/cmake-build-debug",
-		"source" : "/home/angel/EDD/Practica2EDD"
+		"build" : "C:/EDD/Practica2EDD/cmake-build-debug",
+		"source" : "C:/EDD/Practica2EDD"
 	},
 	"version" : 
 	{

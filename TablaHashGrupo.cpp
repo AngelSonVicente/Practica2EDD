@@ -10,7 +10,7 @@ using namespace std;
 
 TablaHashGrupo::TablaHashGrupo() {
     for (int i = 0; i < TAMANO_TABLA; ++i) {
-        tabla[i] = nullptr;
+        tabla[i] = nullptr; // Inicializamos cada posición con un puntero nulo
     }
 }
 
@@ -24,12 +24,10 @@ int TablaHashGrupo::funcionHash(const std::string& clave) {
 
 void TablaHashGrupo::agregarGrupo(const std::string& nombreGrupo, TablaHashCampo* tablaCampo) {
     int indice = funcionHash(nombreGrupo);
-    cout<<"Indice al agregar "<<nombreGrupo<<" : " <<indice<<endl;
     tabla[indice] = tablaCampo;
 }
 
 TablaHashCampo* TablaHashGrupo::obtenerTablaCampo(const std::string& nombreGrupo) {
     int indice = funcionHash(nombreGrupo);
-    cout<<"Indice tabla :"<< indice <<endl;
     return tabla[indice];
 }

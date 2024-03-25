@@ -10,6 +10,7 @@
 #include "TablaHashCampo.h"
 
 class TablaHashGrupo {
+
 private:
     static const int TAMANO_TABLA = 5;
     TablaHashCampo* tabla[TAMANO_TABLA];
@@ -20,9 +21,9 @@ public:
     TablaHashGrupo();
     void agregarGrupo(const std::string& nombreGrupo, TablaHashCampo* tablaCampo);
     TablaHashCampo* obtenerTablaCampo(const std::string& nombreGrupo);
-
-
 };
+
+
 
 
 #endif //PRACTICA2EDD_TABLAHASHGRUPO_H
