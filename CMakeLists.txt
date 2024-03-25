@@ -8,4 +8,8 @@ add_executable(Practica2EDD main.cpp
         ArbolAVL.h
         Contacto.cpp
         Contacto.h
+        TablaHashGrupo.cpp
+        TablaHashGrupo.h
+        TablaHashCampo.cpp
+        TablaHashCampo.h
 )
