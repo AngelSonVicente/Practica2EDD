@@ -46,41 +46,45 @@ int main() {
 */
 
 
+
     TablaHashCampo tablaCampoGrupo1;
+    tablaCampoGrupo1.agregarCampo("Nombre");
+    tablaCampoGrupo1.agregarCampo("Apellido");
+    tablaCampoGrupo1.agregarCampo("Correo");
+
+    // Creamos la tabla hash de campos para el grupo 2
     TablaHashCampo tablaCampoGrupo2;
-
-    // Agregamos campos a las tablas de campos
-    tablaCampoGrupo1.agregarCampo("Nombre Grupo1");
-    tablaCampoGrupo1.agregarCampo("Apellido Grupo1");
-    tablaCampoGrupo1.agregarCampo("Correo Grupo1");
-
-    tablaCampoGrupo2.agregarCampo("Edad Grupo2");
-    tablaCampoGrupo2.agregarCampo("Telefono Grupo2");
+    tablaCampoGrupo2.agregarCampo("Edad");
+    tablaCampoGrupo2.agregarCampo("Teléfono");
 
     // Creamos la tabla hash de grupos
     TablaHashGrupo tablaGrupo;
 
-    // Agregamos algunos grupos a la tabla
+    // Agregamos los grupos a la tabla
     tablaGrupo.agregarGrupo("Grupo1", &tablaCampoGrupo1);
     tablaGrupo.agregarGrupo("Grupo2", &tablaCampoGrupo2);
 
-    // Buscamos un grupo en la tabla
-    std::string nombreGrupoBuscado = "Grupo2";
-    TablaHashCampo* tablaCampoEncontrada = tablaGrupo.obtenerTablaCampo(nombreGrupoBuscado);
+    // Buscamos un campo en el grupo 1
+    std::string nombreCampoBuscado = "Nombre";
+    std::string* campoEncontrado = tablaGrupo.obtenerTablaCampo("Grupo1")->buscarCampo(nombreCampoBuscado);
 
-
-    if (tablaCampoEncontrada != nullptr) {
-        std::cout << "Grupo encontrado: " << nombreGrupoBuscado << std::endl;
-        std::cout << "Campos del grupo:" << std::endl;
-        for (int i = 0; i < 5; ++i) { // Suponiendo un máximo de 5 campos por grupo
-            if (tablaCampoEncontrada->buscarCampo(tablaCampoEncontrada->tabla[i])) {
-                std::cout << "- " << tablaCampoEncontrada->tabla[i] << std::endl;
-            }
-        }
+    // Verificamos si se encontró el campo y mostramos el resultado
+    if (campoEncontrado != nullptr) {
+        std::cout << "Campo encontrado en Grupo1: " << *campoEncontrado << std::endl;
     } else {
-        std::cout << "Grupo no encontrado: " << nombreGrupoBuscado << std::endl;
+        std::cout << "Campo no encontrado en Grupo1: " << nombreCampoBuscado << std::endl;
     }
 
+    // Buscamos un campo en el grupo 2
+    nombreCampoBuscado = "Edad";
+    campoEncontrado = tablaGrupo.obtenerTablaCampo("Grupo2")->buscarCampo(nombreCampoBuscado);
+
+    // Verificamos si se encontró el campo y mostramos el resultado
+    if (campoEncontrado != nullptr) {
+        std::cout << "Campo encontrado en Grupo2: " << *campoEncontrado << std::endl;
+    } else {
+        std::cout << "Campo no encontrado en Grupo2: " << nombreCampoBuscado << std::endl;
+    }
 
 
 

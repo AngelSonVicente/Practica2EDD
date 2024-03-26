@@ -10,7 +10,7 @@ using namespace std;
 
 TablaHashCampo::TablaHashCampo() {
     for (int i = 0; i < TAMANO_TABLA; ++i) {
-        tabla[i] = "";
+        tabla[i] = ""; // Inicializamos cada posición con una cadena vacía
     }
 }
 
@@ -24,13 +24,11 @@ int TablaHashCampo::funcionHash(const std::string& clave) {
 
 void TablaHashCampo::agregarCampo(const std::string& nombreCampo) {
     int indice = funcionHash(nombreCampo);
-    tabla[indice] = nombreCampo;
+    tabla[indice] = nombreCampo; // Guardamos el nombre del campo en la tabla de campos
 }
 
-bool TablaHashCampo::buscarCampo(const std::string& nombreCampo) {
+std::string* TablaHashCampo::buscarCampo(const std::string& nombreCampo) {
     int indice = funcionHash(nombreCampo);
-    return tabla[indice] == nombreCampo;
-
+    return tabla[indice] == nombreCampo ? &tabla[indice] : nullptr;
 }
-
 
