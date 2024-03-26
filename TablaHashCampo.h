@@ -11,14 +11,14 @@
 class TablaHashCampo {
 private:
     static const int TAMANO_TABLA = 5;
-    std::string tabla[TAMANO_TABLA];
+    ArbolAVL* tabla[TAMANO_TABLA];
 
     int funcionHash(const std::string& clave);
 
 public:
     TablaHashCampo();
     void agregarCampo(const std::string& nombreCampo);
-    std::string* buscarCampo(const std::string& nombreCampo);
+    ArbolAVL* buscarCampo(const std::string& nombreCampo);
 };
 
 

@@ -47,13 +47,16 @@ int main() {
 
 
 
+
+    // Creamos las tablas de campos para los grupos
     TablaHashCampo tablaCampoGrupo1;
+    TablaHashCampo tablaCampoGrupo2;
+
+    // Agregamos campos a las tablas de campos
     tablaCampoGrupo1.agregarCampo("Nombre");
     tablaCampoGrupo1.agregarCampo("Apellido");
     tablaCampoGrupo1.agregarCampo("Correo");
 
-    // Creamos la tabla hash de campos para el grupo 2
-    TablaHashCampo tablaCampoGrupo2;
     tablaCampoGrupo2.agregarCampo("Edad");
     tablaCampoGrupo2.agregarCampo("Teléfono");
 
@@ -64,27 +67,20 @@ int main() {
     tablaGrupo.agregarGrupo("Grupo1", &tablaCampoGrupo1);
     tablaGrupo.agregarGrupo("Grupo2", &tablaCampoGrupo2);
 
-    // Buscamos un campo en el grupo 1
-    std::string nombreCampoBuscado = "Nombre";
-    std::string* campoEncontrado = tablaGrupo.obtenerTablaCampo("Grupo1")->buscarCampo(nombreCampoBuscado);
+    // Insertamos algunos datos en los árboles AVL asociados a los campos
 
-    // Verificamos si se encontró el campo y mostramos el resultado
-    if (campoEncontrado != nullptr) {
-        std::cout << "Campo encontrado en Grupo1: " << *campoEncontrado << std::endl;
-    } else {
-        std::cout << "Campo no encontrado en Grupo1: " << nombreCampoBuscado << std::endl;
-    }
+    Contacto contacto1("Juan",  "7948732");
+    Contacto contacto2("Maria", "78784");
 
-    // Buscamos un campo en el grupo 2
-    nombreCampoBuscado = "Edad";
-    campoEncontrado = tablaGrupo.obtenerTablaCampo("Grupo2")->buscarCampo(nombreCampoBuscado);
+    tablaCampoGrupo1.buscarCampo("Nombre")->insertar(contacto1); // Insertamos en el árbol AVL asociado al campo "Nombre" del grupo 1
+    tablaCampoGrupo2.buscarCampo("Edad")->insertar(contacto2); // Insertamos en el árbol AVL asociado al campo "Edad" del grupo 2
 
-    // Verificamos si se encontró el campo y mostramos el resultado
-    if (campoEncontrado != nullptr) {
-        std::cout << "Campo encontrado en Grupo2: " << *campoEncontrado << std::endl;
-    } else {
-        std::cout << "Campo no encontrado en Grupo2: " << nombreCampoBuscado << std::endl;
-    }
+    // Podemos imprimir los árboles AVL para verificar los datos ingresados
+    std::cout << "Arbol AVL asociado al campo 'Nombre' del Grupo1:" << std::endl;
+    tablaCampoGrupo1.buscarCampo("Nombre")->imprimir();
+
+    std::cout << "Arbol AVL asociado al campo 'Edad' del Grupo2:" << std::endl;
+    tablaCampoGrupo2.buscarCampo("Edad")->imprimir();
 
 
 
