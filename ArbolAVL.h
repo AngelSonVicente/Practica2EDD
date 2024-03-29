@@ -6,22 +6,23 @@
 #define PRACTICA2EDD_ARBOLAVL_H
 
 #include "Contacto.h"
+#include "ListaCampos.h"
 
 class NodoAVL {
 public:
-    Contacto contacto;
+    ListaCampos* campos;
     NodoAVL* izquierda;
     NodoAVL* derecha;
     int altura;
 
-    NodoAVL(const Contacto& c);
+    NodoAVL(ListaCampos* lc);
 };
 
 class ArbolAVL {
 private:
     NodoAVL* raiz;
 
-    NodoAVL* insertarRecursivo(NodoAVL* nodo, const Contacto& contacto);
+    NodoAVL* insertarRecursivo(NodoAVL* nodo, ListaCampos* campos);
     int altura(NodoAVL* nodo);
     int balanceFactor(NodoAVL* nodo);
     NodoAVL* rotarDerecha(NodoAVL* nodo);
@@ -31,8 +32,12 @@ private:
 
 public:
     ArbolAVL();
-    void insertar(const Contacto& contacto);
+
     void imprimir();
+
+    void insertar(ListaCampos *campos, int indice);
+
+    NodoAVL *insertarRecursivo(NodoAVL *nodo, ListaCampos *campos, int indice);
 };
 
 #endif

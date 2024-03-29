@@ -152,6 +152,30 @@ ArbolAVL.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/ArbolAVL.cpp.s
 .PHONY : ArbolAVL.cpp.s
 
+Campo.obj: Campo.cpp.obj
+.PHONY : Campo.obj
+
+# target to build an object file
+Campo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/Campo.cpp.obj
+.PHONY : Campo.cpp.obj
+
+Campo.i: Campo.cpp.i
+.PHONY : Campo.i
+
+# target to preprocess a source file
+Campo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/Campo.cpp.i
+.PHONY : Campo.cpp.i
+
+Campo.s: Campo.cpp.s
+.PHONY : Campo.s
+
+# target to generate assembly for a file
+Campo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/Campo.cpp.s
+.PHONY : Campo.cpp.s
+
 Contacto.obj: Contacto.cpp.obj
 .PHONY : Contacto.obj
 
@@ -175,6 +199,30 @@ Contacto.s: Contacto.cpp.s
 Contacto.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/Contacto.cpp.s
 .PHONY : Contacto.cpp.s
+
+ListaCampos.obj: ListaCampos.cpp.obj
+.PHONY : ListaCampos.obj
+
+# target to build an object file
+ListaCampos.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/ListaCampos.cpp.obj
+.PHONY : ListaCampos.cpp.obj
+
+ListaCampos.i: ListaCampos.cpp.i
+.PHONY : ListaCampos.i
+
+# target to preprocess a source file
+ListaCampos.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/ListaCampos.cpp.i
+.PHONY : ListaCampos.cpp.i
+
+ListaCampos.s: ListaCampos.cpp.s
+.PHONY : ListaCampos.s
+
+# target to generate assembly for a file
+ListaCampos.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/ListaCampos.cpp.s
+.PHONY : ListaCampos.cpp.s
 
 TablaHashCampo.obj: TablaHashCampo.cpp.obj
 .PHONY : TablaHashCampo.obj
@@ -260,9 +308,15 @@ help:
 	@echo ... ArbolAVL.obj
 	@echo ... ArbolAVL.i
 	@echo ... ArbolAVL.s
+	@echo ... Campo.obj
+	@echo ... Campo.i
+	@echo ... Campo.s
 	@echo ... Contacto.obj
 	@echo ... Contacto.i
 	@echo ... Contacto.s
+	@echo ... ListaCampos.obj
+	@echo ... ListaCampos.i
+	@echo ... ListaCampos.s
 	@echo ... TablaHashCampo.obj
 	@echo ... TablaHashCampo.i
 	@echo ... TablaHashCampo.s

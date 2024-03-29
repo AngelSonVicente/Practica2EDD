@@ -142,5 +142,6 @@ CMakeFiles/Practica2EDD.dir/main.cpp.obj: C:\EDD\Practica2EDD\main.cpp \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
  C:\EDD\Practica2EDD\ArbolAVL.h C:\EDD\Practica2EDD\Contacto.h \
+ C:\EDD\Practica2EDD\ListaCampos.h C:\EDD\Practica2EDD\Campo.h \
  C:\EDD\Practica2EDD\TablaHashCampo.h \
  C:\EDD\Practica2EDD\TablaHashGrupo.h

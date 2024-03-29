@@ -2,26 +2,26 @@
 #include <iostream>
 
 
-NodoAVL::NodoAVL(const Contacto& c) : contacto(c), izquierda(nullptr), derecha(nullptr), altura(1) {}
+NodoAVL::NodoAVL(ListaCampos* lc) : campos(lc), izquierda(nullptr), derecha(nullptr), altura(1) {}
 
 ArbolAVL::ArbolAVL() : raiz(nullptr) {}
 
-NodoAVL* ArbolAVL::insertarRecursivo(NodoAVL* nodo, const Contacto& contacto) {
+NodoAVL* ArbolAVL::insertarRecursivo(NodoAVL* nodo, ListaCampos* campos, int indice) {
     if (nodo == nullptr) {
-        return new NodoAVL(contacto);
+        return new NodoAVL(campos);
     }
 
-    if (contacto.obtenerTelefono() < nodo->contacto.obtenerTelefono()) {
-        nodo->izquierda = insertarRecursivo(nodo->izquierda, contacto);
+    if (campos->obtenerCampo(indice)->obtenerNombre() < nodo->campos->obtenerCampo(indice)->obtenerNombre()) {
+        nodo->izquierda = insertarRecursivo(nodo->izquierda, campos, indice);
     } else {
-        nodo->derecha = insertarRecursivo(nodo->derecha, contacto);
+        nodo->derecha = insertarRecursivo(nodo->derecha, campos, indice);
     }
 
     return balancear(nodo);
 }
 
-void ArbolAVL::insertar(const Contacto& contacto) {
-    raiz = insertarRecursivo(raiz, contacto);
+void ArbolAVL::insertar(ListaCampos* campos, int indice) {
+    raiz = insertarRecursivo(raiz, campos, indice);
 }
 
 int ArbolAVL::altura(NodoAVL* nodo) {
@@ -80,11 +80,10 @@ void ArbolAVL::imprimirRecursivo(NodoAVL* nodo) {
     }
 
     imprimirRecursivo(nodo->izquierda);
-    std::cout << nodo->contacto.obtenerNombre() << " (" << nodo->contacto.obtenerTelefono() << ") ";
+    nodo->campos->imprimir(); // Imprimir la lista de campos en lugar de un solo campo
     imprimirRecursivo(nodo->derecha);
 }
 
 void ArbolAVL::imprimir() {
     imprimirRecursivo(raiz);
-    std::cout << std::endl;
 }

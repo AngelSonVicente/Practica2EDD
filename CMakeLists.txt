@@ -12,4 +12,8 @@ add_executable(Practica2EDD main.cpp
         TablaHashGrupo.h
         TablaHashCampo.cpp
         TablaHashCampo.h
+        Campo.cpp
+        Campo.h
+        ListaCampos.cpp
+        ListaCampos.h
 )

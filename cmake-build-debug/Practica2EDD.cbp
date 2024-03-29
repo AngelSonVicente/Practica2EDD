@@ -88,10 +88,22 @@
 		<Unit filename="C:/EDD/Practica2EDD/ArbolAVL.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
+		<Unit filename="C:/EDD/Practica2EDD/Campo.cpp">
+			<Option target="Practica2EDD"/>
+		</Unit>
+		<Unit filename="C:/EDD/Practica2EDD/Campo.h">
+			<Option target="Practica2EDD"/>
+		</Unit>
 		<Unit filename="C:/EDD/Practica2EDD/Contacto.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
 		<Unit filename="C:/EDD/Practica2EDD/Contacto.h">
+			<Option target="Practica2EDD"/>
+		</Unit>
+		<Unit filename="C:/EDD/Practica2EDD/ListaCampos.cpp">
+			<Option target="Practica2EDD"/>
+		</Unit>
+		<Unit filename="C:/EDD/Practica2EDD/ListaCampos.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
 		<Unit filename="C:/EDD/Practica2EDD/TablaHashCampo.cpp">
