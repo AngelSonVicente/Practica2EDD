@@ -1,11 +1,55 @@
 #include <iostream>
+#include <vector>
+#include <regex>
 #include "ArbolAVL.h"
 #include "TablaHashCampo.h"
 #include "TablaHashGrupo.h"
 #include "ListaCampos.h"
 
-
 using namespace std;
+
+
+// Función para analizar el comando ingresado
+void analizarComando(const std::string& comando) {
+    regex regexCrearGrupo("ADD\\s+NEW-GROUP\\s+(\\w+)\\s+FIELDS\\s+\\((.*?)\\);");
+    regex regexCrearContacto("ADD\\s+CONTACT\\s+IN\\s+(\\w+)\\s+FIELDS\\s+\\((.*?)\\);");
+    regex regexBuscarContacto("FIND\\s+CONTACT\\s+IN\\s+(\\w+)\\s+CONTACT-FIELD\\s+(\\w+)=([^;]+);");
+
+    smatch matches;
+
+    if (regex_match(comando, matches, regexCrearGrupo)) {
+        string nombreGrupo = matches[1];
+        string campos = matches[2];
+        cout << "Instruccion: Creacion de grupo" << endl;
+        cout << "Nombre del grupo: " << nombreGrupo << endl;
+        cout << "Campos: " << campos << endl;
+
+        //  logica para guardar los campos en una Lista
+    } else if (std::regex_match(comando, matches, regexCrearContacto)) {
+        string nombreGrupo = matches[1];
+        string datos = matches[2];
+        cout << "Instruccion: Creacion de contacto" << endl;
+        cout << "Nombre del grupo: " << nombreGrupo << endl;
+        cout << "Datos del contacto: " << datos << endl;
+
+        //  logica para guardar los datos en una Lista
+    } else if (std::regex_match(comando, matches, regexBuscarContacto)) {
+        string nombreGrupo = matches[1];
+        string campo = matches[2];
+        string dato = matches[3];
+        cout << "Instruccion: Busqueda de contacto" << endl;
+        cout << "Nombre del grupo: " << nombreGrupo << endl;
+        cout << "Campo: " << campo << endl;
+        cout << "Dato a buscar: " << dato << endl;
+
+        // logica para realizar la busqueda
+    } else {
+        cout << "Comando no reconocido" << endl;
+    }
+}
+
+
+
 
 
 int main() {
@@ -102,7 +146,7 @@ int main() {
 */
 
 
-
+/*
     TablaHashCampo tablaCampoGrupo1;
     TablaHashCampo tablaCampoGrupo2;
 
@@ -147,6 +191,15 @@ ListaCampos* campos2Grupo1 = new ListaCampos();
     std::cout << "Arbol AVL asociado al campo 'Apellido' del Grupo1:" << std::endl;
     //tablaCampoGrupo1.buscarCampo("Nombre")->imprimir();
     tablaCampoGrupo1.buscarCampo("Apellido")->imprimir();
+
+*/
+
+
+    string comando = "FIND CONTACT IN clientes CONTACT-FIELD apellido=alvarez;";
+
+    // Analizar el comando
+    analizarComando(comando);
+
 
 
 
