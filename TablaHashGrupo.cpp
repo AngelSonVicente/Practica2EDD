@@ -5,6 +5,8 @@
 #include <iostream>
 #include "TablaHashGrupo.h"
 #include "TablaHashCampo.h"
+#include <fstream>
+
 
 using namespace std;
 
@@ -31,3 +33,5 @@ TablaHashCampo* TablaHashGrupo::obtenerTablaCampo(const std::string& nombreGrupo
     int indice = funcionHash(nombreGrupo);
     return tabla[indice];
 }
+
+

@@ -147,6 +147,8 @@ void analizarComando(const std::string& comando) {
 
         tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->imprimir();
 
+      cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
+
 
 
 
@@ -309,6 +311,17 @@ ListaCampos* campos2Grupo1 = new ListaCampos();
 
     string comando1 = "ADD CONTACT IN grupo1 FIELDS (Pedro, Alvarez, jlkdja@correo "
                       ");";
+string comando11 = "ADD CONTACT IN grupo1 FIELDS (wicho, Alvarez, jlkdja@correo "
+                      ");";
+string comando12 = "ADD CONTACT IN grupo1 FIELDS (jsjsjs, xxx, jlkdja@correo "
+                      ");";
+string comando13 = "ADD CONTACT IN grupo1 FIELDS (dkaslkdlsa, lkdjslakda, jlkdja@correo "
+                      ");";
+string comando14 = "ADD CONTACT IN grupo1 FIELDS (gurr, jjjjjjs, jlkdja@correo "
+                      ");";
+string comando15 = "ADD CONTACT IN grupo1 FIELDS (aaaaaaaaaaaa, mmckml, jlkdja@correo "
+                      ");";
+
 
     string comando2 = "FIND CONTACT IN grupo1 CONTACT-FIELD apellido=alvarez;";
 
@@ -318,6 +331,20 @@ ListaCampos* campos2Grupo1 = new ListaCampos();
 
     cout<<endl<<comando1<<endl;
     analizarComando(comando1);
+
+cout<<endl<<comando11<<endl;
+    analizarComando(comando11);
+
+    cout<<endl<<comando12<<endl;
+    analizarComando(comando12);
+ cout<<endl<<comando13<<endl;
+    analizarComando(comando13);
+ cout<<endl<<comando14<<endl;
+    analizarComando(comando14);
+cout<<endl<<comando15<<endl;
+    analizarComando(comando15);
+
+
 
     cout<<endl<<comando2<<endl<<endl;
     analizarComando(comando2);
