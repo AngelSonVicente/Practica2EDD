@@ -8,8 +8,9 @@
 
 using namespace std;
 
+TablaHashGrupo tablaGrupo;
 
-// Función para analizar el comando ingresado
+
 void analizarComando(const std::string& comando) {
     regex regexCrearGrupo("ADD\\s+NEW-GROUP\\s+(\\w+)\\s+FIELDS\\s+\\((.*?)\\);");
     regex regexCrearContacto("ADD\\s+CONTACT\\s+IN\\s+(\\w+)\\s+FIELDS\\s+\\((.*?)\\);");
@@ -17,20 +18,117 @@ void analizarComando(const std::string& comando) {
 
     smatch matches;
 
+
+
+    //CREAR GRUPOS
     if (regex_match(comando, matches, regexCrearGrupo)) {
         string nombreGrupo = matches[1];
+        //campos de la creacion de grupos
         string campos = matches[2];
         cout << "Instruccion: Creacion de grupo" << endl;
         cout << "Nombre del grupo: " << nombreGrupo << endl;
         cout << "Campos: " << campos << endl;
 
-        //  logica para guardar los campos en una Lista
-    } else if (std::regex_match(comando, matches, regexCrearContacto)) {
+        //aca separamos los campos y los ingresaremos a una lista
+        std::istringstream ss(campos);
+
+        std::string campo;
+
+
+        TablaHashCampo tablaCampos;
+
+        // Extraemos cada palabra de la cadena
+        int contador;
+        while (ss >> campo) {
+            // Eliminamos la coma al final del campo, si es que existe
+            if (campo.back() == ',') {
+                campo.pop_back();
+            }
+            if(contador%2==0){
+
+
+            std::cout << "Campo: " << campo << std::endl;
+
+            tablaCampos.agregarCampo(campo);
+
+            //aca lo metemos a una lista
+            }
+
+            //agregamos el grupo a la tabla con su nombre y su tabla de campos
+            tablaGrupo.agregarGrupo(nombreGrupo,&tablaCampos);
+
+            contador++;
+        }
+
+        // CREAR CONTACTOS
+    } else if (regex_match(comando, matches, regexCrearContacto)) {
         string nombreGrupo = matches[1];
         string datos = matches[2];
         cout << "Instruccion: Creacion de contacto" << endl;
         cout << "Nombre del grupo: " << nombreGrupo << endl;
         cout << "Datos del contacto: " << datos << endl;
+
+        std::istringstream ss(datos);
+
+        std::string campo;
+
+
+
+
+    cout<<"Obteniendo tabla hash de cmapos del grupo"<<endl;
+        TablaHashCampo* tablaCampoGrupo1=tablaGrupo.obtenerTablaCampo(nombreGrupo);
+
+
+        cout<<"Obteniendo nombre de los campos"<<endl;
+
+
+        TablaHashCampo* tablaCampoGrupo = tablaGrupo.obtenerTablaCampo(nombreGrupo);
+
+
+
+            ListaCampos* listaCampos = tablaCampoGrupo->obtenerNombreCampos();
+
+            cout<<"FUNCIONOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"<<endl<<endl;
+
+           listaCampos->imprimir();
+
+            cout<<"FUNCIONOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"<<endl<<endl;
+
+
+
+
+
+
+//        listaCampos->imprimir();
+
+
+        cout<<"Creando lista de campos que se ingeraran"<<endl;
+        ListaCampos* camposGrupo = new ListaCampos();
+
+        int c=0;
+        while (ss >> campo) {
+            // Eliminamos la coma al final del campo, si es que existe
+            if (campo.back() == ',') {
+                campo.pop_back();
+            }
+
+
+                //aca lo metemos a una lista
+
+                std::cout << "Campo: " << campo << std::endl;
+
+            camposGrupo->agregarCampo(listaCampos->obtenerCampo(c)->obtenerNombre(),campo);
+
+           
+
+
+            tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(c)->obtenerNombre())->insertar(camposGrupo,c);
+
+
+            c++;
+
+        }
+
 
         //  logica para guardar los datos en una Lista
     } else if (std::regex_match(comando, matches, regexBuscarContacto)) {
@@ -42,7 +140,16 @@ void analizarComando(const std::string& comando) {
         cout << "Campo: " << campo << endl;
         cout << "Dato a buscar: " << dato << endl;
 
+
+
         // logica para realizar la busqueda
+
+
+        tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->imprimir();
+
+
+
+
     } else {
         cout << "Comando no reconocido" << endl;
     }
@@ -195,11 +302,25 @@ ListaCampos* campos2Grupo1 = new ListaCampos();
 */
 
 
-    string comando = "FIND CONTACT IN clientes CONTACT-FIELD apellido=alvarez;";
+    string comando = "ADD NEW-GROUP grupo1 FIELDS (nombre STRING, apellido "
+                     "STRING, correo );";
 
-    // Analizar el comando
+
+
+    string comando1 = "ADD CONTACT IN grupo1 FIELDS (Pedro, Alvarez, jlkdja@correo "
+                      ");";
+
+    string comando2 = "FIND CONTACT IN grupo1 CONTACT-FIELD apellido=alvarez;";
+
+
+    cout<<comando<<endl;
     analizarComando(comando);
 
+    cout<<endl<<comando1<<endl;
+    analizarComando(comando1);
+
+    cout<<endl<<comando2<<endl<<endl;
+    analizarComando(comando2);
 
 
 

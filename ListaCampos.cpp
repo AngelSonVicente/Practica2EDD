@@ -11,19 +11,6 @@ ListaCampos::~ListaCampos() {
     }
 }
 
-void ListaCampos::agregarCampo(const std::string& nombre, const std::string& valor) {
-    Campo* nuevoCampo = new Campo(nombre, valor);
-    if (!cabeza) {
-        cabeza = nuevoCampo;
-    } else {
-        Campo* actual = cabeza;
-        while (actual->obtenerSiguiente()) {
-            actual = actual->obtenerSiguiente();
-        }
-        actual->establecerSiguiente(nuevoCampo);
-    }
-}
-
 Campo* ListaCampos::obtenerCampo(int indice) const {
     Campo* actual = cabeza;
     int contador = 0;
@@ -34,6 +21,19 @@ Campo* ListaCampos::obtenerCampo(int indice) const {
     return actual;
 }
 
+void ListaCampos::agregarCampo(const std::string& nombre, const std::string& valor) {
+    Campo* nuevoCampo = new Campo(nombre, valor);
+    if (!cabeza) {
+        cabeza = nuevoCampo;
+    } else {
+        Campo* actual = cabeza;
+        while (actual->obtenerSiguiente()) {
+            actual = actual->obtenerSiguiente();
+        }
+
+        actual->establecerSiguiente(nuevoCampo);
+    }
+}
 int ListaCampos::obtenerTamanio() const {
     int contador = 0;
     Campo* actual = cabeza;

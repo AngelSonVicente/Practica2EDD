@@ -3,6 +3,7 @@
 //
 
 #include <string>
+#include <iostream>
 #include "TablaHashCampo.h"
 #include "ArbolAVL.h"
 
@@ -22,12 +23,31 @@ int TablaHashCampo::funcionHash(const std::string& clave) {
     return suma % TAMANO_TABLA;
 }
 
+ListaCampos* nombreCamposs = new ListaCampos(); //SI JALA
+
 void TablaHashCampo::agregarCampo(const std::string& nombreCampo) {
+
+
     int indice = funcionHash(nombreCampo);
-    tabla[indice] = new ArbolAVL(); // Creamos un nuevo árbol AVL para este campo
+    nombreCampos->agregarCampo(nombreCampo, "");
+    nombreCamposs->agregarCampo(nombreCampo, "");
+
+    cout<<"campo a agregar en la lsita a regresar"<<nombreCampo<<endl;
+
+
+    tabla[indice] = new ArbolAVL(); // Creamos un nuevo arbol AVL para este campo
+
+
+    nombreCamposs->imprimir();
+
 }
 
 ArbolAVL* TablaHashCampo::buscarCampo(const std::string& nombreCampo) {
     int indice = funcionHash(nombreCampo);
     return tabla[indice]; // Retornamos el puntero al árbol AVL asociado a este campo
+}
+
+ListaCampos* TablaHashCampo::obtenerNombreCampos() {
+
+    return nombreCamposs;
 }
