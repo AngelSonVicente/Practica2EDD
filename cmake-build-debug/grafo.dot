@@ -1,26 +1,9 @@
-digraph PracticaEDD2 {
-  node [shape=record];
-tabla [label="|<grupo2> grupo2|<mamalon2> mamalon2"];
-
-node [shape=oval];
-N2472811925952 [label="dkaslkdlsa"];
-N2472811925952 -> N2472811925856;
-N2472811925856 [label="wicho"];
-N2472811925856 -> N2472810610256;
-N2472810610256 [label="Pedro"];
-N2472811925856 -> N2472811925904;
-N2472811925904 [label="jsjsjs"];
-N2472811925952 -> N2472811926000;
-N2472811926000 [label="gurr"];
-N2472811926000 -> N2472810607296;
-N2472810607296 [label="aaaaaaaaaaaa"];
-tabla:grupo2 -> N2472811925952;
-N2472811925648 [label="olaaa"];
-N2472811925648 -> N2472810610176;
-N2472810610176 [label="anaaaaa"];
-N2472811925648 -> N2472811925760;
-N2472811925760 [label="xdddddddddddd"];
-tabla:mamalon2 -> N2472811925648;
-
-
+digraph mamalon2 {
+raiz [label="mamalon2", shape=box];
+N94822978023104 [label="olaaa"];
+N94822978023104 -> N94822978022576;
+N94822978022576 [label="anaaaaa"];
+N94822978023104 -> N94822978020672;
+N94822978020672 [label="xdddddddddddd"];
+raiz -> N94822978023104;
 }
