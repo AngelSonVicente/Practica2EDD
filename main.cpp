@@ -7,6 +7,7 @@
 #include "ListaCampos.h"
 #include "Graficar.h"
 #include "set"
+#include "Util.h"
 
 using namespace std;
 
@@ -261,6 +262,65 @@ string graficarEstructura(){
 }
 
 
+void ExportarGrupo(){
+
+     cout <<endl<<endl<<endl<<"EXPORTAR CONTACTOS"<<endl;
+    cout<<"_________________________________________________________"<<endl;
+    cout<<"_________________________________________________________"<<endl<<endl;
+
+
+    cout <<"Lista de grupos: "<<endl<<endl;
+
+    set<string> gruposProcesados;
+
+    ListaCampos* listaGrupos = tablaGrupo.obtenerNombreGrupos();
+
+    for (int i = 0; i < listaGrupos->obtenerTamanio(); ++i) {
+        string nombreGrupo = listaGrupos->obtenerCampo(i)->obtenerNombre();
+        string campo = tablaGrupo.obtenerTablaCampo(nombreGrupo)->obtenerNombreCampos()->obtenerCampo(1)->obtenerNombre();
+
+        // Verificar si el grupo ya ha sido procesado
+        if (gruposProcesados.find(nombreGrupo) == gruposProcesados.end()) {
+
+
+            cout<<nombreGrupo<<endl;
+
+
+
+            // Agregar el nombre del grupo al conjunto de grupos procesados
+            gruposProcesados.insert(nombreGrupo);
+        }
+
+
+    }
+
+
+    string grupo="";
+    cout<<"ingrese el nombre del grupo"<<endl;
+    cin>>grupo;
+
+    string campoBusqueda=tablaGrupo.obtenerTablaCampo(grupo)->obtenerNombreCampos()->obtenerCampo(1)->obtenerNombre();
+    tablaGrupo.obtenerTablaCampo(grupo)->buscarCampo(campoBusqueda)->imprimir();
+
+    Util util;
+
+   string path= util.crearcarpeta(grupo);
+
+   tablaGrupo.obtenerTablaCampo(grupo)->buscarCampo(campoBusqueda)->exportarContactos(path);
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -472,19 +532,22 @@ cout<<endl<<comando15<<endl;
 
 
     cout<<endl<<comando2<<endl<<endl;
-   // analizarComando(comando2);
+    analizarComando(comando2);
     analizarComando(comandog22);
 
 
 
 
-   string contenido= graficarEstructura();
+   //string contenido= graficarEstructura();
 
 
 
 //Graficar graficar;
 //graficar.generarImagen(contenido);
 
+
+
+ExportarGrupo();
 
 
     return 0;

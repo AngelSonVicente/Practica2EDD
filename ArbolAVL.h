@@ -60,6 +60,10 @@ public:
 
     void
     generarDotRecursivoCompleto(stringstream &ss, NodoAVL *nodo, const string &nombreRaiz, const string &nombreGrupo);
+
+    void exportarContactos(const string &Directorio);
+
+    void exportarContactos(NodoAVL *nodo, const string &Directorio);
 };
 
 #endif

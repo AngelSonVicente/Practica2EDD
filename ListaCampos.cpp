@@ -46,7 +46,21 @@ int ListaCampos::obtenerTamanio() const {
 void ListaCampos::imprimir() const {
     Campo *actual = cabeza;
     while (actual) {
-        cout << "Nombre: " << actual->obtenerNombre() << ", Valor: " << actual->obtenerValor() << std::endl;
+        cout  << actual->obtenerNombre() << " : " << actual->obtenerValor()<<"  " ;
         actual = actual->obtenerSiguiente();
     }
+    cout<<endl<<endl;
+}
+
+std::string ListaCampos::contactoToString(int indice) const {
+    Campo* contacto = obtenerCampo(indice);
+    if (!contacto) {
+        return "Índice de contacto fuera de rango.";
+    }
+
+    std::string contactoStr;
+    contactoStr += " " + contacto->obtenerNombre() + ": ";
+    contactoStr += " " + contacto->obtenerValor() + "\n";
+
+    return contactoStr;
 }

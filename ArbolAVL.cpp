@@ -2,6 +2,8 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <filesystem>
+#include <fstream>
 #include "string"
 
 
@@ -179,5 +181,45 @@ void ArbolAVL:: generarDotRecursivoCompleto(std::stringstream& ss, NodoAVL* nodo
     }
 }
 
+
+
+
+void ArbolAVL::exportarContactos(NodoAVL* nodo, const std::string& Directorio) {
+    if (nodo == nullptr) {
+        return;
+    }
+
+    // Generar un identificador único para el nodo
+    std::string nodoId = nodo->campos->obtenerCampo(0)->obtenerValor();
+
+    // Crear un archivo para el contacto
+    std::string nombreArchivo = Directorio + "/" + nodoId + ".txt";
+    std::ofstream archivo(nombreArchivo);
+    if (!archivo.is_open()) {
+        std::cerr << "Error al crear el archivo: " << nombreArchivo << std::endl;
+        return;
+    }
+
+    // Escribir la información del contacto en el archivo
+    archivo << "Información del contacto:" << std::endl;
+    for (int i = 0; i < nodo->campos->obtenerTamanio(); ++i) {
+        archivo << nodo->campos->contactoToString(i) << std::endl;
+    }
+    archivo.close();
+
+    // Llamar recursivamente para los nodos izquierdo y derecho
+    exportarContactos(nodo->izquierda, Directorio);
+    exportarContactos(nodo->derecha, Directorio);
+}
+
+void ArbolAVL::exportarContactos(const std::string& Directorio) {
+    // Crear el directorio si no existe
+    if (!std::filesystem::exists(Directorio)) {
+        std::filesystem::create_directory(Directorio);
+    }
+
+    // Llamar al método recursivo para empezar la exportación de los contactos
+    exportarContactos(raiz, Directorio);
+}
 
 

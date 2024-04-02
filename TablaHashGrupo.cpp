@@ -19,7 +19,7 @@ int TablaHashGrupo::funcionHash(const std::string& clave) {
     for (size_t i = 0; i < clave.length(); ++i) {
         suma += clave[i] * (i + 1);
     }
-    cout<<"SUMA:  "<< suma;
+   // cout<<"SUMA:  "<< suma;
 
     return suma % (  TAMANO_TABLA-1);
 }
@@ -57,7 +57,7 @@ TablaHashCampo* TablaHashGrupo::obtenerTablaCampo(const std::string& nombreGrupo
 
 
     int indice = funcionHash(nombreGrupo);
-    cout<<"IDNDICE DE TABLA HASH CAMPO: "<<indice<<" NOMBRE GRUPO:" <<nombreGrupo<<endl<<endl<<endl;
+  //  cout<<"IDNDICE DE TABLA HASH CAMPO: "<<indice<<" NOMBRE GRUPO:" <<nombreGrupo<<endl<<endl<<endl;
 
     return &tabla[indice];
 }

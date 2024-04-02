@@ -22,6 +22,8 @@ public:
     int obtenerTamanio() const;
 
     void imprimir() const;
+
+    string contactoToString(int indice) const;
 };
 
 
