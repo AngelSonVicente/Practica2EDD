@@ -66,12 +66,14 @@ void analizarComando(string& comando) {
             contador++;
         }
 
+        cout<<"GRUPO CREADO EXITOSAMENTE!"<<endl;
+
       //  tablaCampos.eliminarTodosCampos();
         // CREAR CONTACTOS
     } else if (regex_match(comando, matches, regexCrearContacto)) {
         string nombreGrupo = matches[1];
         string datos = matches[2];
-        cout << "-----------------------------------------------------------" << endl;
+
         cout << "-----------------------------------------------------------" << endl;
         cout << "-----------------------------------------------------------" << endl;
         cout << "Instruccion: Creacion de contacto" << endl;
@@ -136,8 +138,15 @@ void analizarComando(string& comando) {
         }
 
 
+        for (int i = 0; i < tablaGrupo.obtenerTablaCampo(nombreGrupo)->getCampos()->obtenerTamanio(); ++i) {
 
-            tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(1)->obtenerNombre())->insertar(camposGrupo,1);
+            tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(i)->obtenerNombre())->insertar(camposGrupo,i);
+        }
+
+
+
+//        tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(1)->obtenerNombre())->insertar(camposGrupo,1);
+
 
 
       //  tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(1)->obtenerNombre())->imprimir();
@@ -145,7 +154,9 @@ void analizarComando(string& comando) {
 
 
 
-        //  logica para guardar los datos en una Lista
+
+    cout<<"CONTACTO CREADO EXITOSAMENTE!"<<endl;
+
     } else if (std::regex_match(comando, matches, regexBuscarContacto)) {
         string nombreGrupo = matches[1];
         string campo = matches[2];
@@ -241,7 +252,7 @@ string graficarEstructura(){
 
     for (int i = 0; i < listaGrupos->obtenerTamanio(); ++i) {
         string nombreGrupo = listaGrupos->obtenerCampo(i)->obtenerNombre();
-        string campo = tablaGrupo.obtenerTablaCampo(nombreGrupo)->obtenerNombreCampos()->obtenerCampo(1)->obtenerNombre();
+        string campo = tablaGrupo.obtenerTablaCampo(nombreGrupo)->obtenerNombreCampos()->obtenerCampo(0)->obtenerNombre();
 
         // Verificar si el grupo ya ha sido procesado
         if (gruposProcesados.find(nombreGrupo) == gruposProcesados.end()) {
@@ -469,8 +480,6 @@ cout<<endl<<comando15<<endl;
 
 
     cout<<endl<<comando2<<endl<<endl;
-   // analizarComando(comando2);
-   // analizarComando(comandog22);
 
 
 
@@ -557,9 +566,6 @@ cout<<endl<<comando15<<endl;
 
 
 
-//ExportarGrupo();
-
-//Reportes();
 
     return 0;
 }
