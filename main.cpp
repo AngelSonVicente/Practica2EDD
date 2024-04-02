@@ -85,13 +85,13 @@ void analizarComando(string& comando) {
 
 
 
-    cout<<"Obteniendo tabla hash de cmapos del grupo: "<<nombreGrupo<<endl;
+    //cout<<"Obteniendo tabla hash de cmapos del grupo: "<<nombreGrupo<<endl;
         TablaHashCampo* tablaCampoGrupo1=tablaGrupo.obtenerTablaCampo(nombreGrupo);
 
 
-        tablaCampoGrupo1->obtenerNombreCampos()->imprimir();
+        //tablaCampoGrupo1->obtenerNombreCampos()->imprimir();
 
-        cout<<"Obteniendo nombre de los campos"<<endl;
+       // cout<<"Obteniendo nombre de los campos"<<endl;
 
 
 
@@ -99,8 +99,8 @@ void analizarComando(string& comando) {
 
             ListaCampos* listaCampos = tablaCampoGrupo1->obtenerNombreCampos();
 
-            cout<<endl<<endl<<"LISTA DE CAMPOS";
-            listaCampos->imprimir();
+          //  cout<<endl<<endl<<"LISTA DE CAMPOS";
+           // listaCampos->imprimir();
 
 
 
@@ -111,7 +111,7 @@ void analizarComando(string& comando) {
 //        listaCampos->imprimir();
 
 
-        cout<<"Creando lista de campos que se ingeraran"<<endl;
+       // cout<<"Creando lista de campos que se ingeraran"<<endl;
         ListaCampos* camposGrupo = new ListaCampos();
 
         int c=0;
@@ -172,7 +172,7 @@ void analizarComando(string& comando) {
 
         string contenido=tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
         //retorna un string que contiene el arbol
-        cout <<contenido  << endl;
+      //  cout <<contenido  << endl;
 
         Graficar graficar;
         graficar.generarImagen(contenido);
@@ -184,6 +184,18 @@ void analizarComando(string& comando) {
     }
 }
 
+
+void graficarArbol(string nombreGrupo){
+    string campo = tablaGrupo.obtenerTablaCampo(nombreGrupo)->obtenerNombreCampos()->obtenerCampo(1)->obtenerNombre();
+
+    string contenido=tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
+
+
+    Graficar graficar;
+    graficar.generarImagen(contenido);
+
+
+}
 
 string graficarEstructura(){
 
@@ -240,7 +252,7 @@ string graficarEstructura(){
 
 
             //retorna un string que contiene el arbol
-            cout << tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDotEstructuraCompleta(nombreGrupo,ss) << endl;
+             tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDotEstructuraCompleta(nombreGrupo,ss);
 
             // Agregar el nombre del grupo al conjunto de grupos procesados
             gruposProcesados.insert(nombreGrupo);
@@ -258,7 +270,7 @@ string graficarEstructura(){
 
 
 
-    cout<<ss.str();
+   // cout<<ss.str();
 
 
     return ss.str();
@@ -299,7 +311,7 @@ void ExportarGrupo(){
 
 
     string grupo="";
-    cout<<"ingrese el nombre del grupo"<<endl;
+    cout<<endl<<"ingrese el nombre del grupo"<<endl;
     cin>>grupo;
 
     string campoBusqueda=tablaGrupo.obtenerTablaCampo(grupo)->obtenerNombreCampos()->obtenerCampo(1)->obtenerNombre();
@@ -363,6 +375,7 @@ void Reportes(){
     }
 
     cout<<"--------------------------------------------------------------"<<endl;
+
     cout<<endl<<"cantidad de datos de todo el sistema:  "<<tablaGrupo.obtenerNombreGrupos()->obtenerTamanio()<<endl;
 
     cout<<endl<<"--------------------------------------------------------------"<<endl;
@@ -388,145 +401,7 @@ void Reportes(){
 
 int main() {
 
-/*
-    ArbolAVL arbol;
 
-    arbol.insertar(Contacto("Alice","100"));
-    arbol.insertar(Contacto("Bob","50"));
-    arbol.insertar(Contacto("Charlie","75"));
-    arbol.insertar(Contacto("David","150"));
-
-
-    cout << "Arbol : ";
-    arbol.imprimir();
-*/
-
-/*
-    TablaHashCampo tablaCampo1;
-    TablaHashCampo tablaCampo2;
-
-    // Creamos la tabla hash de grupos
-    TablaHashGrupo tablaGrupo;
-
-    // Agregamos algunos grupos a la tabla
-    tablaGrupo.agregarGrupo("dalskjdlkd", &tablaCampo1);
-    tablaGrupo.agregarGrupo("Grupo2", &tablaCampo2);
-
-
-    string nombreGrupoBuscado = "Grupo1";
-    TablaHashCampo* tablaCampoEncontrada = tablaGrupo.obtenerTablaCampo(nombreGrupoBuscado);
-
-
-    if (tablaCampoEncontrada != nullptr) {
-        std::cout << "Grupo encontrado: " << nombreGrupoBuscado << std::endl;
-    } else {
-        std::cout << "Grupo no encontrado: " << nombreGrupoBuscado << std::endl;
-    }
-*/
-
-
-    //--------------------------PRUEBA CON CONTACTOS----------
-    /*
-    // Creamos las tablas de campos para los grupos
-    TablaHashCampo tablaCampoGrupo1;
-    TablaHashCampo tablaCampoGrupo2;
-
-    // Agregamos campos a las tablas de campos
-    tablaCampoGrupo1.agregarCampo("Nombre");
-    tablaCampoGrupo1.agregarCampo("Apellido");
-    tablaCampoGrupo1.agregarCampo("Correo");
-
-    tablaCampoGrupo2.agregarCampo("Edad");
-    tablaCampoGrupo2.agregarCampo("Teléfono");
-
-    // Creamos la tabla hash de grupos
-    TablaHashGrupo tablaGrupo;
-
-    // Agregamos los grupos a la tabla
-    tablaGrupo.agregarGrupo("Grupo1", &tablaCampoGrupo1);
-    tablaGrupo.agregarGrupo("Grupo2", &tablaCampoGrupo2);
-
-    // Insertamos algunos datos en los árboles AVL asociados a los campos
-
-    Contacto contacto1("Juan",  "7948732");
-    Contacto contacto2("Maria", "78784");
-
-    tablaCampoGrupo1.buscarCampo("Nombre")->insertar(contacto1); // Insertamos en el árbol AVL asociado al campo "Nombre" del grupo 1
-    tablaCampoGrupo2.buscarCampo("Edad")->insertar(contacto2); // Insertamos en el árbol AVL asociado al campo "Edad" del grupo 2
-
-    // Podemos imprimir los árboles AVL para verificar los datos ingresados
-    std::cout << "Arbol AVL asociado al campo 'Nombre' del Grupo1:" << std::endl;
-    tablaCampoGrupo1.buscarCampo("Nombre")->imprimir();
-
-    std::cout << "Arbol AVL asociado al campo 'Edad' del Grupo2:" << std::endl;
-    tablaCampoGrupo2.buscarCampo("Edad")->imprimir();
-*/
-
-
-
-
-
-   /*
-    ListaCampos listaCampos;
-
-
-    listaCampos.agregarCampo("Nombre", "Juan");
-    listaCampos.agregarCampo("Apellido", "Perez");
-    listaCampos.agregarCampo("Edad", "30");
-
-
-    std::cout << "Lista de Campos:" << std::endl;
-    listaCampos.imprimir();
-*/
-
-
-/*
-    TablaHashCampo tablaCampoGrupo1;
-    TablaHashCampo tablaCampoGrupo2;
-
-// Agregamos campos a las tablas de campos
-    tablaCampoGrupo1.agregarCampo("Nombre");
-    tablaCampoGrupo1.agregarCampo("Apellido");
-    tablaCampoGrupo1.agregarCampo("Correo");
-
-    tablaCampoGrupo2.agregarCampo("Edad");
-    tablaCampoGrupo2.agregarCampo("Teléfono");
-
-// Creamos la tabla hash de grupos
-    TablaHashGrupo tablaGrupo;
-
-// Agregamos los grupos a la tabla
-    tablaGrupo.agregarGrupo("Grupo1", &tablaCampoGrupo1);
-    tablaGrupo.agregarGrupo("Grupo2", &tablaCampoGrupo2);
-
-// Insertamos algunos datos en los árboles AVL asociados a los campos
-    ListaCampos* camposGrupo1 = new ListaCampos();
-    camposGrupo1->agregarCampo("Nombre", "Juan");
-    camposGrupo1->agregarCampo("Apellido", "Perez");
-    camposGrupo1->agregarCampo("Correo", "juan.perez@example.com");
-ListaCampos* campos2Grupo1 = new ListaCampos();
-    campos2Grupo1->agregarCampo("Nombre", "Auan");
-    campos2Grupo1->agregarCampo("Apellido", "Aerez");
-    campos2Grupo1->agregarCampo("Correo", "Auan.perez@example.com");
-
-    ListaCampos* camposGrupo2 = new ListaCampos();
-    camposGrupo2->agregarCampo("Edad", "25");
-    camposGrupo2->agregarCampo("Telefono", "123456789");
-
-    tablaCampoGrupo1.buscarCampo("Nombre")->insertar(camposGrupo1,0); // Insertamos en el árbol AVL asociado al campo "Nombre" del grupo 1
-    tablaCampoGrupo1.buscarCampo("Apellido")->insertar(campos2Grupo1,1); // Insertamos en el árbol AVL asociado al campo "Nombre" del grupo 1
-    tablaCampoGrupo1.buscarCampo("Apellido")->insertar(camposGrupo1,1); // Insertamos en el árbol AVL asociado al campo "Nombre" del grupo 1
-    tablaCampoGrupo1.buscarCampo("Correo")->insertar(camposGrupo1,2); // Insertamos en el árbol AVL asociado al campo "Nombre" del grupo 1
-
-
-    tablaCampoGrupo2.buscarCampo("Edad")->insertar(camposGrupo2,1); // Insertamos en el árbol AVL asociado al campo "Edad" del grupo 2
-
-// Podemos imprimir los árboles AVL para verificar los datos ingresados
-    std::cout << "Arbol AVL asociado al campo 'Apellido' del Grupo1:" << std::endl;
-    //tablaCampoGrupo1.buscarCampo("Nombre")->imprimir();
-    tablaCampoGrupo1.buscarCampo("Apellido")->imprimir();
-
-*/
 
 
     string comando = "ADD NEW-GROUP grupo2 FIELDS (nombre STRING, apellido "
@@ -600,18 +475,91 @@ cout<<endl<<comando15<<endl;
 
 
 
-   string contenido= graficarEstructura();
 
 
 
-Graficar graficar;
-graficar.generarImagen(contenido);
+    int opcion=-1;
+    while (opcion!=0){
+
+
+        cout<<"Ingrese la opcion que desea realizar "<<endl;
+        cout<<" --------------------------Menu----------------"<<endl;
+        cout<<"|  1:  Terminal                                |"<<endl;
+        cout<<"|  2:  Reportes                                |"<<endl;
+        cout<<"|  3:  Graficas                                |"<<endl;
+        cout<<"|  4:  Exportacion de datos                    |"<<endl;
+        cout<<"|  0:  SALIR                                   |"<<endl;
+        cout<<"|______________________________________________|"<<endl;
+        cin>>opcion;
+
+
+        if(opcion==1){
+
+
+            comando="";
+            cout<<"Ingrese el comando: "<<endl;
+            cin>>comando;
+
+            analizarComando(comando);
+
+
+
+        }else if (opcion==2){
+            Reportes();
+
+
+
+        } else if(opcion==3){
+            int opcionestructura=0;
+
+            cout<<"ingrese 1 para graficar una estructura, Ingrese 2 para graficar la estructura completa"<<endl;
+            cin>>opcionestructura;
+
+
+            if(opcionestructura==1){
+                string nombreGrupo="";
+                cout<<"Ingrese el nombre del grupo"<<endl;
+                cin>>nombreGrupo;
+
+                graficarArbol(nombreGrupo);
+
+            }
+            if(opcionestructura==2){
+
+                cout<<"GRAFICAR ESTRUCTURA COMPLETA"<<endl;
+                string contenido= graficarEstructura();
+
+                Graficar graficar;
+                graficar.generarImagen(contenido);
+
+
+
+            }
+
+
+
+
+        }else if(opcion==4){
+            ExportarGrupo();
+
+
+        }
+
+
+
+
+
+
+
+
+    }
+
 
 
 
 //ExportarGrupo();
 
-Reportes();
+//Reportes();
 
     return 0;
 }

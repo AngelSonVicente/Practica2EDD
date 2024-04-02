@@ -33,7 +33,7 @@ ListaCampos* nombreGrupos = new ListaCampos(); //SI JALA
 void TablaHashGrupo::agregarGrupo(const std::string& nombreGrupo, const std::string& nombreCampo) {
     int indice = funcionHash(nombreGrupo);
     nombreGrupos->agregarCampo(nombreGrupo, "");
-    cout << endl << endl << "SE INGRESO GRUPO: " << nombreGrupo << "   AL INDICE: " << indice << endl <<"campo que se ingreso "<<nombreCampo<< endl;
+ //   cout << endl << endl << "SE INGRESO GRUPO: " << nombreGrupo << "   AL INDICE: " << indice << endl <<"campo que se ingreso "<<nombreCampo<< endl;
 
 
 
