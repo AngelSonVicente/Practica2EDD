@@ -64,6 +64,10 @@ public:
     void exportarContactos(const string &Directorio);
 
     void exportarContactos(NodoAVL *nodo, const string &Directorio);
+
+    int cantidadContactos();
+
+    int cantidadNodosRecursivo(NodoAVL *nodo);
 };
 
 #endif

@@ -32,6 +32,7 @@ void TablaHashCampo::agregarCampo(const std::string& nombreCampo) {
 
     nombreCamposs->agregarCampo(nombreCampo, "");
 
+    Campos.agregar(nombreCampo);
 
 
 
@@ -44,7 +45,7 @@ void TablaHashCampo::agregarCampo(const std::string& nombreCampo) {
 
 ArbolAVL* TablaHashCampo::buscarCampo(const std::string& nombreCampo) {
     int indice = funcionHash(nombreCampo);
-    cout<<"INIDICE DEL ARBOL AL QUE SE INGRESO:  "<<indice<<"nombreCAmpo:  " <<nombreCampo<<endl;
+   // cout<<"INIDICE DEL ARBOL AL QUE SE INGRESO:  "<<indice<<"nombreCAmpo:  " <<nombreCampo<<endl;
     return tabla[indice]; // Retornamos el puntero al árbol AVL asociado a este campo
 }
 
@@ -53,14 +54,14 @@ ListaCampos* TablaHashCampo::obtenerNombreCampos() {
     return nombreCamposs;
 }
 
+nombreCampos* TablaHashCampo::getCampos(){
+
+return &Campos;
+}
+
 void TablaHashCampo::eliminarTodosCampos() {
-    // Eliminar los árboles AVL y reiniciar la lista de nombres de campos
-    for (int i = 0; i < TAMANO_TABLA; ++i) {
-        if (tabla[i]) {
-            delete tabla[i];  // Eliminar el árbol AVL
-            tabla[i] = nullptr;
-        }
-    }
+
+
     delete nombreCamposs;  // Eliminar la lista de nombres de campos
     nombreCamposs = new ListaCampos();  // Crear una nueva lista vacía
 }

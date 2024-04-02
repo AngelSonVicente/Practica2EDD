@@ -189,25 +189,25 @@ void ArbolAVL::exportarContactos(NodoAVL* nodo, const std::string& Directorio) {
         return;
     }
 
-    // Generar un identificador único para el nodo
+
     std::string nodoId = nodo->campos->obtenerCampo(0)->obtenerValor();
 
-    // Crear un archivo para el contacto
+
     std::string nombreArchivo = Directorio + "/" + nodoId + ".txt";
     std::ofstream archivo(nombreArchivo);
     if (!archivo.is_open()) {
-        std::cerr << "Error al crear el archivo: " << nombreArchivo << std::endl;
+      //  std::cerr << "Error al crear el archivo: " << nombreArchivo << std::endl;
         return;
     }
 
-    // Escribir la información del contacto en el archivo
-    archivo << "Información del contacto:" << std::endl;
+
+    archivo << "Informacion del contacto:" << std::endl;
     for (int i = 0; i < nodo->campos->obtenerTamanio(); ++i) {
         archivo << nodo->campos->contactoToString(i) << std::endl;
     }
     archivo.close();
 
-    // Llamar recursivamente para los nodos izquierdo y derecho
+
     exportarContactos(nodo->izquierda, Directorio);
     exportarContactos(nodo->derecha, Directorio);
 }
@@ -218,8 +218,24 @@ void ArbolAVL::exportarContactos(const std::string& Directorio) {
         std::filesystem::create_directory(Directorio);
     }
 
-    // Llamar al método recursivo para empezar la exportación de los contactos
+    //metodo recursivo
     exportarContactos(raiz, Directorio);
+}
+
+int ArbolAVL::cantidadNodosRecursivo(NodoAVL* nodo) {
+    if (nodo == nullptr) {
+        return 0;
+    }
+
+    int izquierda = cantidadNodosRecursivo(nodo->izquierda);
+
+    int derecha = cantidadNodosRecursivo(nodo->derecha);
+
+    return 1 + izquierda + derecha;
+}
+
+int ArbolAVL::cantidadContactos() {
+    return cantidadNodosRecursivo(raiz);
 }
 
 

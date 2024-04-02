@@ -12,6 +12,8 @@ using namespace std;
 
 TablaHashGrupo::TablaHashGrupo() {
 
+
+
 }
 
 int TablaHashGrupo::funcionHash(const std::string& clave) {

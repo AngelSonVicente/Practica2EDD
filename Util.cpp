@@ -19,11 +19,8 @@ string Util::crearcarpeta(const string& grupo ){
     // Ruta completa de la carpeta a crear
     std::string rutaCarpeta = directorio + "/" + grupo;
 
-    // Comprobar si el directorio existe
-    if (!fs::exists(directorio)) {
-     //   std::cerr << "El directorio especificado no existe." << std::endl;
 
-    }
+
 
     // Crear la carpeta si no existe
     if (!fs::exists(rutaCarpeta)) {

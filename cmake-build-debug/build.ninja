@@ -103,6 +103,12 @@ build CMakeFiles/Practica2EDD.dir/Util.cpp.o: CXX_COMPILER__Practica2EDD_unscann
   OBJECT_DIR = CMakeFiles/Practica2EDD.dir
   OBJECT_FILE_DIR = CMakeFiles/Practica2EDD.dir
 
+build CMakeFiles/Practica2EDD.dir/nombreCampos.cpp.o: CXX_COMPILER__Practica2EDD_unscanned_Debug /home/angel/EDD/Practica2EDD/nombreCampos.cpp || cmake_object_order_depends_target_Practica2EDD
+  DEP_FILE = CMakeFiles/Practica2EDD.dir/nombreCampos.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Practica2EDD.dir
+  OBJECT_FILE_DIR = CMakeFiles/Practica2EDD.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Practica2EDD
@@ -111,7 +117,7 @@ build CMakeFiles/Practica2EDD.dir/Util.cpp.o: CXX_COMPILER__Practica2EDD_unscann
 #############################################
 # Link the executable Practica2EDD
 
-build Practica2EDD: CXX_EXECUTABLE_LINKER__Practica2EDD_Debug CMakeFiles/Practica2EDD.dir/main.cpp.o CMakeFiles/Practica2EDD.dir/ArbolAVL.cpp.o CMakeFiles/Practica2EDD.dir/Contacto.cpp.o CMakeFiles/Practica2EDD.dir/TablaHashGrupo.cpp.o CMakeFiles/Practica2EDD.dir/TablaHashCampo.cpp.o CMakeFiles/Practica2EDD.dir/Campo.cpp.o CMakeFiles/Practica2EDD.dir/ListaCampos.cpp.o CMakeFiles/Practica2EDD.dir/Graficar.cpp.o CMakeFiles/Practica2EDD.dir/Util.cpp.o
+build Practica2EDD: CXX_EXECUTABLE_LINKER__Practica2EDD_Debug CMakeFiles/Practica2EDD.dir/main.cpp.o CMakeFiles/Practica2EDD.dir/ArbolAVL.cpp.o CMakeFiles/Practica2EDD.dir/Contacto.cpp.o CMakeFiles/Practica2EDD.dir/TablaHashGrupo.cpp.o CMakeFiles/Practica2EDD.dir/TablaHashCampo.cpp.o CMakeFiles/Practica2EDD.dir/Campo.cpp.o CMakeFiles/Practica2EDD.dir/ListaCampos.cpp.o CMakeFiles/Practica2EDD.dir/Graficar.cpp.o CMakeFiles/Practica2EDD.dir/Util.cpp.o CMakeFiles/Practica2EDD.dir/nombreCampos.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Practica2EDD.dir
   POST_BUILD = :

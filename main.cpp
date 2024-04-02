@@ -39,6 +39,7 @@ void analizarComando(string& comando) {
 
         std::string campo;
 
+//       tablaGrupo.obtenerTablaCampo(nombreGrupo)->index= tablaGrupo.obtenerTablaCampo(nombreGrupo)->obtenerNombreCampos()->obtenerTamanio();
 
 //        TablaHashCampo tablaCampos ;
 
@@ -87,6 +88,7 @@ void analizarComando(string& comando) {
     cout<<"Obteniendo tabla hash de cmapos del grupo: "<<nombreGrupo<<endl;
         TablaHashCampo* tablaCampoGrupo1=tablaGrupo.obtenerTablaCampo(nombreGrupo);
 
+
         tablaCampoGrupo1->obtenerNombreCampos()->imprimir();
 
         cout<<"Obteniendo nombre de los campos"<<endl;
@@ -126,12 +128,13 @@ void analizarComando(string& comando) {
 
 
 
-            camposGrupo->agregarCampo(listaCampos->obtenerCampo(c)->obtenerNombre(),campo);
+            camposGrupo->agregarCampo(tablaGrupo.obtenerTablaCampo(nombreGrupo)->getCampos()->obtenerCAmpo(c)->nombre,campo);
 
 
             c++;
 
         }
+
 
 
             tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(1)->obtenerNombre())->insertar(camposGrupo,1);
@@ -311,6 +314,65 @@ void ExportarGrupo(){
 
 
 
+}
+
+void Reportes(){
+
+
+    cout<<".................................................................."<<endl;
+    cout<<"cantidad de datos (campos) por grupo: "<<endl<<endl;
+
+
+    set<string> gruposProcesados;
+
+    ListaCampos* listaGrupos = tablaGrupo.obtenerNombreGrupos();
+
+
+    for (int i = 0; i < listaGrupos->obtenerTamanio(); ++i) {
+        string nombreGrupo = listaGrupos->obtenerCampo(i)->obtenerNombre();
+        string campo = tablaGrupo.obtenerTablaCampo(nombreGrupo)->obtenerNombreCampos()->obtenerCampo(1)->obtenerNombre();
+
+        // Verificar si el grupo ya ha sido procesado
+        if (gruposProcesados.find(nombreGrupo) == gruposProcesados.end()) {
+
+
+
+
+            cout<<"_________________________________________________________________________"<<endl;
+            cout<<endl<<nombreGrupo<<endl<<endl<<"cantidad de datos:  "<< tablaGrupo.obtenerTablaCampo(nombreGrupo)->getCampos()->obtenerTamanio()<<endl;
+
+            tablaGrupo.obtenerTablaCampo(nombreGrupo)->getCampos()->imprimir();
+            string NombreCampo=tablaGrupo.obtenerTablaCampo(nombreGrupo)->getCampos()->obtenerCAmpo(1)->nombre;
+
+
+
+            cout<<"cantidad de Contactos del grupo: "<<tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->cantidadContactos() <<endl;
+
+
+
+
+
+
+
+            // Agregar el nombre del grupo al conjunto de grupos procesados
+            gruposProcesados.insert(nombreGrupo);
+        }
+
+
+
+    }
+
+    cout<<"--------------------------------------------------------------"<<endl;
+    cout<<endl<<"cantidad de datos de todo el sistema:  "<<tablaGrupo.obtenerNombreGrupos()->obtenerTamanio()<<endl;
+
+    cout<<endl<<"--------------------------------------------------------------"<<endl;
+
+
+
+
+
+
+    gruposProcesados.clear();
 
 
 }
@@ -532,23 +594,24 @@ cout<<endl<<comando15<<endl;
 
 
     cout<<endl<<comando2<<endl<<endl;
-    analizarComando(comando2);
-    analizarComando(comandog22);
+   // analizarComando(comando2);
+   // analizarComando(comandog22);
 
 
 
 
-   //string contenido= graficarEstructura();
+   string contenido= graficarEstructura();
 
 
 
-//Graficar graficar;
-//graficar.generarImagen(contenido);
+Graficar graficar;
+graficar.generarImagen(contenido);
 
 
 
-ExportarGrupo();
+//ExportarGrupo();
 
+Reportes();
 
     return 0;
 }
