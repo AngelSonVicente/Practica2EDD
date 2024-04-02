@@ -163,7 +163,7 @@ void analizarComando(string& comando) {
 
        cout<<"-------------------------------------------------------------"<<endl;
 
-//        cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
+       // cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
 
 
 
@@ -175,7 +175,7 @@ void analizarComando(string& comando) {
 }
 
 
-void graficarEstructura(){
+string graficarEstructura(){
 
     stringstream  ss;
 
@@ -216,7 +216,7 @@ void graficarEstructura(){
 
     //agregamos todos los arboles
     gruposProcesados.clear();
-    ss<<"node [shape=circle];"<<endl;
+    ss<<"node [shape=oval];"<<endl;
 
 
     for (int i = 0; i < listaGrupos->obtenerTamanio(); ++i) {
@@ -253,6 +253,7 @@ void graficarEstructura(){
     cout<<ss.str();
 
 
+    return ss.str();
 }
 
 
@@ -473,12 +474,12 @@ cout<<endl<<comando15<<endl;
 
 
 
-    graficarEstructura();
+   string contenido= graficarEstructura();
 
 
 
-//Graficar graficar;
-// graficar.garficarEstructuraCompleta(tablaGrupo.obtenerNombreGrupos(),&tablaGrupo);
+Graficar graficar;
+graficar.generarImagen(contenido);
 
 
 

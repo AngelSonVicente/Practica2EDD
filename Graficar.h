@@ -14,24 +14,12 @@ using namespace std;
 
 class Graficar {
 
-    void graficarArbol(string contenidoDot){
 
-
-    }
 
 
 public:
-    void garficarEstructuraCompleta(ListaCampos* nombreGrupos, TablaHashGrupo* grupos){
 
-        for (int i = 0; i < nombreGrupos->obtenerTamanio(); ++i) {
-
-            cout<<endl<<endl<<  grupos->obtenerTablaCampo(nombreGrupos->obtenerCampo(i)->obtenerNombre())->buscarCampo(nombreGrupos->obtenerCampo(0)->obtenerNombre())->generarDot(nombreGrupos->obtenerCampo(i)->obtenerNombre());
-
-
-        }
-
-
-    }
+    void generarImagen(const string &contenidoDot);
 };
 
 
