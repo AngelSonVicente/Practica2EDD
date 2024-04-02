@@ -96,17 +96,7 @@ void ArbolAVL::imprimir() {
 
 
 
-std::string ArbolAVL::generarDot(const std::string& nombreArbol) {
-    std::stringstream ss;
-    ss << "digraph " << nombreArbol << " {" << std::endl;
-    // Agregar el nodo raíz con el nombre del árbol
-    ss << "raiz [label=\"" << nombreArbol << "\"];" << std::endl;
-    generarDotRecursivo(ss, raiz);
-    ss << "}" << std::endl;
-    return ss.str();
-}
-
-void ArbolAVL::generarDotRecursivo(std::stringstream& ss, NodoAVL* nodo) {
+void ArbolAVL:: generarDotRecursivo(std::stringstream& ss, NodoAVL* nodo, const std::string& nombreRaiz) {
     if (nodo == nullptr) {
         return;
     }
@@ -120,12 +110,74 @@ void ArbolAVL::generarDotRecursivo(std::stringstream& ss, NodoAVL* nodo) {
     if (nodo->izquierda != nullptr) {
         std::string izquierdaId = "N" + std::to_string(reinterpret_cast<uintptr_t>(nodo->izquierda));
         ss << nodoId << " -> " << izquierdaId << ";" << std::endl;
-        generarDotRecursivo(ss, nodo->izquierda);
+        generarDotRecursivo(ss, nodo->izquierda, nombreRaiz);
     }
 
     if (nodo->derecha != nullptr) {
         std::string derechaId = "N" + std::to_string(reinterpret_cast<uintptr_t>(nodo->derecha));
         ss << nodoId << " -> " << derechaId << ";" << std::endl;
-        generarDotRecursivo(ss, nodo->derecha);
+        generarDotRecursivo(ss, nodo->derecha, nombreRaiz);
+    }
+
+    // Conectar el nodo raíz con el primer nodo del árbol
+    if (nodoId == "N" + std::to_string(reinterpret_cast<uintptr_t>(raiz))) {
+        ss << nombreRaiz << " -> " << nodoId << ";" << std::endl;
     }
 }
+
+std::string ArbolAVL::generarDot(const std::string& nombreArbol) {
+    std::stringstream ss;
+    ss << "digraph " << nombreArbol << " {" << std::endl;
+    // Agregar el nodo raíz con el nombre del árbol y estilo rectángulo
+    ss << "raiz [label=\"" << nombreArbol << "\", shape=box];" << std::endl;
+    generarDotRecursivo(ss, raiz, "raiz");
+    ss << "}" << std::endl;
+    return ss.str();
+}
+
+
+string ArbolAVL::generarDotEstructuraCompleta(const std::string& nombreArbol, stringstream& ss) {
+
+
+    // Agregar el nodo raíz con el nombre del árbol y estilo rectángulo
+
+    generarDotRecursivoCompleto(ss, raiz, "raiz",nombreArbol);
+
+
+
+    return ss.str();
+}
+
+
+
+void ArbolAVL:: generarDotRecursivoCompleto(std::stringstream& ss, NodoAVL* nodo, const std::string& nombreRaiz,const std::string& nombreGrupo ) {
+    if (nodo == nullptr) {
+        return;
+    }
+
+    // Generar un identificador único para el nodo
+    std::string nodoId = "N" + std::to_string(reinterpret_cast<uintptr_t>(nodo));
+
+    // Agregar el nodo al archivo .dot
+    ss << nodoId << " [label=\"" << nodo->campos->obtenerCampo(0)->obtenerValor() << "\"];" << std::endl;
+
+    if (nodo->izquierda != nullptr) {
+        std::string izquierdaId = "N" + std::to_string(reinterpret_cast<uintptr_t>(nodo->izquierda));
+        ss << nodoId << " -> " << izquierdaId << ";" << std::endl;
+        generarDotRecursivo(ss, nodo->izquierda, nombreRaiz);
+    }
+
+    if (nodo->derecha != nullptr) {
+        std::string derechaId = "N" + std::to_string(reinterpret_cast<uintptr_t>(nodo->derecha));
+        ss << nodoId << " -> " << derechaId << ";" << std::endl;
+        generarDotRecursivo(ss, nodo->derecha, nombreRaiz);
+    }
+
+    // Conectar el nodo raíz con el primer nodo del árbol
+    if (nodoId == "N" + std::to_string(reinterpret_cast<uintptr_t>(raiz))) {
+        ss <<"tabla:" <<nombreGrupo << " -> " << nodoId << ";" << std::endl;
+    }
+}
+
+
+

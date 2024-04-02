@@ -6,6 +6,7 @@
 #include "TablaHashGrupo.h"
 #include "ListaCampos.h"
 #include "Graficar.h"
+#include "set"
 
 using namespace std;
 
@@ -162,7 +163,8 @@ void analizarComando(string& comando) {
 
        cout<<"-------------------------------------------------------------"<<endl;
 
-        cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
+//        cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
+
 
 
 
@@ -170,6 +172,87 @@ void analizarComando(string& comando) {
     } else {
         cout << "Comando no reconocido" << endl;
     }
+}
+
+
+void graficarEstructura(){
+
+    stringstream  ss;
+
+            ss << "digraph PracticaEDD2" << " {" << std::endl;
+            ss<<"  node [shape=record];"<<endl;
+    ss<< "tabla [label=\"" ;
+
+    set<string> gruposProcesados;
+
+    ListaCampos* listaGrupos = tablaGrupo.obtenerNombreGrupos();
+    for (int i = 0; i < listaGrupos->obtenerTamanio(); ++i) {
+        string nombreGrupo = listaGrupos->obtenerCampo(i)->obtenerNombre();
+        string campo = tablaGrupo.obtenerTablaCampo(nombreGrupo)->obtenerNombreCampos()->obtenerCampo(1)->obtenerNombre();
+
+        // Verificar si el grupo ya ha sido procesado
+        if (gruposProcesados.find(nombreGrupo) == gruposProcesados.end()) {
+
+
+           ss<<"|<"<<nombreGrupo<<">"<<" "<<nombreGrupo;
+
+
+
+
+            //retorna un string que contiene el arbol
+            cout << tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo) << endl;
+
+            // Agregar el nombre del grupo al conjunto de grupos procesados
+            gruposProcesados.insert(nombreGrupo);
+        }
+
+
+    }
+
+    ss<<"\"];"<<endl<<endl;
+
+
+
+
+    //agregamos todos los arboles
+    gruposProcesados.clear();
+    ss<<"node [shape=circle];"<<endl;
+
+
+    for (int i = 0; i < listaGrupos->obtenerTamanio(); ++i) {
+        string nombreGrupo = listaGrupos->obtenerCampo(i)->obtenerNombre();
+        string campo = tablaGrupo.obtenerTablaCampo(nombreGrupo)->obtenerNombreCampos()->obtenerCampo(1)->obtenerNombre();
+
+        // Verificar si el grupo ya ha sido procesado
+        if (gruposProcesados.find(nombreGrupo) == gruposProcesados.end()) {
+
+
+
+
+
+
+            //retorna un string que contiene el arbol
+            cout << tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDotEstructuraCompleta(nombreGrupo,ss) << endl;
+
+            // Agregar el nombre del grupo al conjunto de grupos procesados
+            gruposProcesados.insert(nombreGrupo);
+        }
+
+
+    }
+
+
+
+
+
+    ss<<endl<<endl<<"}";
+
+
+
+
+    cout<<ss.str();
+
+
 }
 
 
@@ -390,6 +473,7 @@ cout<<endl<<comando15<<endl;
 
 
 
+    graficarEstructura();
 
 
 
