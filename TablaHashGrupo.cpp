@@ -38,12 +38,8 @@ void TablaHashGrupo::agregarGrupo(const std::string& nombreGrupo, const std::str
 
 
 
-    cout << "lista de campos: " << endl;
 
-
-
-    cout << endl;
-
+ 
 //    tabla[indice] = TablaHashCampo(tablaCampo);  // Almacena una copia independiente de tablaCampo en la tabla de grupos
 
     tabla[indice].agregarCampo(nombreCampo);

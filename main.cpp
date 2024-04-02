@@ -31,6 +31,7 @@ void analizarComando(string& comando) {
 
         cout<<"-----------------------------------------"<<endl;
         cout << "Instruccion: Creacion de grupo" << endl;
+
         cout << "Nombre del grupo: " << nombreGrupo << endl;
         cout << "Campos: " << campos << endl;
 
@@ -53,7 +54,7 @@ void analizarComando(string& comando) {
             if(contador%2==0){
 
 
-            std::cout << "Campo: " << campo << std::endl;
+//            std::cout << "Campo: " << campo << std::endl;
 
            // tablaCampos.agregarCampo(campo);
 
@@ -77,9 +78,11 @@ void analizarComando(string& comando) {
         cout << "-----------------------------------------------------------" << endl;
         cout << "-----------------------------------------------------------" << endl;
         cout << "Instruccion: Creacion de contacto" << endl;
+
+       /*
         cout << "Nombre del grupo: " << nombreGrupo << endl;
         cout << "Datos del contacto: " << datos << endl;
-
+*/
         std::istringstream ss(datos);
 
         std::string campo;
@@ -126,7 +129,7 @@ void analizarComando(string& comando) {
 
                 //aca lo metemos a una lista
 
-                std::cout << "Campo: " << campo << std::endl;
+               // std::cout << "Campo: " << campo << std::endl;
 
 
 
@@ -161,11 +164,14 @@ void analizarComando(string& comando) {
         string nombreGrupo = matches[1];
         string campo = matches[2];
         string dato = matches[3];
+
         cout << "Instruccion: Busqueda de contacto" << endl;
+
+        /*
         cout << "Nombre del grupo: " << nombreGrupo << endl;
         cout << "Campo: " << campo << endl;
         cout << "Dato a buscar: " << dato << endl;
-
+*/
 
 
         // logica para realizar la busqueda
@@ -178,15 +184,13 @@ void analizarComando(string& comando) {
 
        cout<<"-------------------------------------------------------------"<<endl;
 
-       // cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
+        // cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
 
 
-        string contenido=tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
-        //retorna un string que contiene el arbol
-      //  cout <<contenido  << endl;
+        tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->buscarCampos(campo,dato);
 
-        Graficar graficar;
-        graficar.generarImagen(contenido);
+
+        cout<<"-------------------------------------------------------------"<<endl;
 
 
 
@@ -446,7 +450,7 @@ int main() {
                       ");";
     analizarComando(cg23);
 
-string comando11 = "ADD CONTACT IN grupo2 FIELDS (wicho, Alvarez, jlkdja@correo "
+string comando11 = "ADD CONTACT IN grupo2 FIELDS (wicho, alvarez, jlkdja@correo "
                       ");";
 string comando12 = "ADD CONTACT IN grupo2 FIELDS (jsjsjs, xxx, jlkdja@correo "
                       ");";
@@ -454,11 +458,11 @@ string comando13 = "ADD CONTACT IN grupo2 FIELDS (dkaslkdlsa, lkdjslakda, jlkdja
                       ");";
 string comando14 = "ADD CONTACT IN grupo2 FIELDS (gurr, jjjjjjs, jlkdja@correo "
                       ");";
-string comando15 = "ADD CONTACT IN grupo2 FIELDS (aaaaaaaaaaaa, mmckml, jlkdja@correo "
+string comando15 = "ADD CONTACT IN grupo2 FIELDS (aaaaaaaaaaaa, alvarez, jlkdja@correo "
                       ");";
 
 
-    string comando2 = "FIND CONTACT IN grupo2 CONTACT-FIELD apellido=alvarez;";
+    string comando2 = "FIND CONTACT IN grupo2 CONTACT-FIELD nombre=gurr;";
     string comandog22 = "FIND CONTACT IN mamalon2 CONTACT-FIELD apellidooo=alvarez;";
 
 
@@ -480,7 +484,7 @@ cout<<endl<<comando15<<endl;
 
 
     cout<<endl<<comando2<<endl<<endl;
-
+    analizarComando(comando2);
 
 
 

@@ -68,6 +68,10 @@ public:
     int cantidadContactos();
 
     int cantidadNodosRecursivo(NodoAVL *nodo);
+
+    void buscarCamposRecursivo(NodoAVL *nodo, const string &campo, const string &valor);
+
+    void buscarCampos(const string &campo, const string &valor);
 };
 
 #endif

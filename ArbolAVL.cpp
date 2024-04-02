@@ -238,4 +238,31 @@ int ArbolAVL::cantidadContactos() {
     return cantidadNodosRecursivo(raiz);
 }
 
+void ArbolAVL::buscarCamposRecursivo(NodoAVL* nodo, const std::string& campo, const std::string& valor) {
+    if (nodo == nullptr) {
+        return;
+    }
+
+    buscarCamposRecursivo(nodo->izquierda, campo, valor);
+
+    // Verificar si el campo coincide con el valor deseado
+    for (int i = 0; i < nodo->campos->obtenerTamanio(); ++i) {
+        if (nodo->campos->obtenerCampo(i)->obtenerNombre() == campo &&
+            nodo->campos->obtenerCampo(i)->obtenerValor() == valor) {
+            // Imprimir los campos del nodo que coinciden con el criterio
+            std::cout << "Contacto encontrado:" << std::endl;
+            nodo->campos->imprimir();
+            break;  // Terminar la búsqueda en este nodo una vez encontrado el campo
+        }
+    }
+
+    buscarCamposRecursivo(nodo->derecha, campo, valor);
+}
+
+void ArbolAVL::buscarCampos(const std::string& campo, const std::string& valor) {
+    std::cout << "Buscando campos con el nombre '" << campo << "' y el valor '" << valor << "':" << std::endl;
+    buscarCamposRecursivo(raiz, campo, valor);
+}
+
+
 

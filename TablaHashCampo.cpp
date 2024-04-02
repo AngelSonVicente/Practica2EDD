@@ -39,7 +39,7 @@ void TablaHashCampo::agregarCampo(const std::string& nombreCampo) {
     //tabla[indice] = new ArbolAVL(); // Creamos un nuevo arbol AVL para este campo
 
 
-    nombreCamposs->imprimir();
+    //nombreCamposs->imprimir();
 
 }
 
