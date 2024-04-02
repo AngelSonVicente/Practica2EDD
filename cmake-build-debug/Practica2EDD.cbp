@@ -8,126 +8,138 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/EDD/Practica2EDD/cmake-build-debug"/>
+				<Option working_dir="/home/angel/EDD/Practica2EDD/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Practica2EDD">
-				<Option output="C:/EDD/Practica2EDD/cmake-build-debug/Practica2EDD.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/EDD/Practica2EDD/cmake-build-debug"/>
+				<Option output="/home/angel/EDD/Practica2EDD/cmake-build-debug/Practica2EDD" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/angel/EDD/Practica2EDD/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica2EDD"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica2EDD"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Practica2EDD/fast">
-				<Option output="C:/EDD/Practica2EDD/cmake-build-debug/Practica2EDD.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/EDD/Practica2EDD/cmake-build-debug"/>
+				<Option output="/home/angel/EDD/Practica2EDD/cmake-build-debug/Practica2EDD" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/angel/EDD/Practica2EDD/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica2EDD/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica2EDD/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/EDD/Practica2EDD/cmake-build-debug"/>
+				<Option working_dir="/home/angel/EDD/Practica2EDD/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/EDD/Practica2EDD/cmake-build-debug"/>
+				<Option working_dir="/home/angel/EDD/Practica2EDD/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/angel/EDD/Practica2EDD/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/EDD/Practica2EDD/ArbolAVL.cpp">
+		<Unit filename="/home/angel/EDD/Practica2EDD/ArbolAVL.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/ArbolAVL.h">
+		<Unit filename="/home/angel/EDD/Practica2EDD/ArbolAVL.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/Campo.cpp">
+		<Unit filename="/home/angel/EDD/Practica2EDD/Campo.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/Campo.h">
+		<Unit filename="/home/angel/EDD/Practica2EDD/Campo.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/Contacto.cpp">
+		<Unit filename="/home/angel/EDD/Practica2EDD/Contacto.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/Contacto.h">
+		<Unit filename="/home/angel/EDD/Practica2EDD/Contacto.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/Graficar.cpp">
+		<Unit filename="/home/angel/EDD/Practica2EDD/Graficar.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/Graficar.h">
+		<Unit filename="/home/angel/EDD/Practica2EDD/Graficar.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/ListaCampos.cpp">
+		<Unit filename="/home/angel/EDD/Practica2EDD/ListaCampos.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/ListaCampos.h">
+		<Unit filename="/home/angel/EDD/Practica2EDD/ListaCampos.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/TablaHashCampo.cpp">
+		<Unit filename="/home/angel/EDD/Practica2EDD/TablaHashCampo.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/TablaHashCampo.h">
+		<Unit filename="/home/angel/EDD/Practica2EDD/TablaHashCampo.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/TablaHashGrupo.cpp">
+		<Unit filename="/home/angel/EDD/Practica2EDD/TablaHashGrupo.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/TablaHashGrupo.h">
+		<Unit filename="/home/angel/EDD/Practica2EDD/TablaHashGrupo.h">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/main.cpp">
+		<Unit filename="/home/angel/EDD/Practica2EDD/Util.cpp">
 			<Option target="Practica2EDD"/>
 		</Unit>
-		<Unit filename="C:/EDD/Practica2EDD/CMakeLists.txt">
+		<Unit filename="/home/angel/EDD/Practica2EDD/Util.h">
+			<Option target="Practica2EDD"/>
+		</Unit>
+		<Unit filename="/home/angel/EDD/Practica2EDD/main.cpp">
+			<Option target="Practica2EDD"/>
+		</Unit>
+		<Unit filename="/home/angel/EDD/Practica2EDD/nombreCampos.cpp">
+			<Option target="Practica2EDD"/>
+		</Unit>
+		<Unit filename="/home/angel/EDD/Practica2EDD/nombreCampos.h">
+			<Option target="Practica2EDD"/>
+		</Unit>
+		<Unit filename="/home/angel/EDD/Practica2EDD/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
