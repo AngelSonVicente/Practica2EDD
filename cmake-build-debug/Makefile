@@ -200,6 +200,30 @@ Contacto.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/Contacto.cpp.s
 .PHONY : Contacto.cpp.s
 
+Graficar.obj: Graficar.cpp.obj
+.PHONY : Graficar.obj
+
+# target to build an object file
+Graficar.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/Graficar.cpp.obj
+.PHONY : Graficar.cpp.obj
+
+Graficar.i: Graficar.cpp.i
+.PHONY : Graficar.i
+
+# target to preprocess a source file
+Graficar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/Graficar.cpp.i
+.PHONY : Graficar.cpp.i
+
+Graficar.s: Graficar.cpp.s
+.PHONY : Graficar.s
+
+# target to generate assembly for a file
+Graficar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Practica2EDD.dir\build.make CMakeFiles/Practica2EDD.dir/Graficar.cpp.s
+.PHONY : Graficar.cpp.s
+
 ListaCampos.obj: ListaCampos.cpp.obj
 .PHONY : ListaCampos.obj
 
@@ -314,6 +338,9 @@ help:
 	@echo ... Contacto.obj
 	@echo ... Contacto.i
 	@echo ... Contacto.s
+	@echo ... Graficar.obj
+	@echo ... Graficar.i
+	@echo ... Graficar.s
 	@echo ... ListaCampos.obj
 	@echo ... ListaCampos.i
 	@echo ... ListaCampos.s

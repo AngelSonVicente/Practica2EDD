@@ -5,13 +5,14 @@
 #include "TablaHashCampo.h"
 #include "TablaHashGrupo.h"
 #include "ListaCampos.h"
+#include "Graficar.h"
 
 using namespace std;
 
 TablaHashGrupo tablaGrupo;
 
 
-void analizarComando(const std::string& comando) {
+void analizarComando(string& comando) {
     regex regexCrearGrupo("ADD\\s+NEW-GROUP\\s+(\\w+)\\s+FIELDS\\s+\\((.*?)\\);");
     regex regexCrearContacto("ADD\\s+CONTACT\\s+IN\\s+(\\w+)\\s+FIELDS\\s+\\((.*?)\\);");
     regex regexBuscarContacto("FIND\\s+CONTACT\\s+IN\\s+(\\w+)\\s+CONTACT-FIELD\\s+(\\w+)=([^;]+);");
@@ -25,6 +26,8 @@ void analizarComando(const std::string& comando) {
         string nombreGrupo = matches[1];
         //campos de la creacion de grupos
         string campos = matches[2];
+
+        cout<<"-----------------------------------------"<<endl;
         cout << "Instruccion: Creacion de grupo" << endl;
         cout << "Nombre del grupo: " << nombreGrupo << endl;
         cout << "Campos: " << campos << endl;
@@ -35,10 +38,10 @@ void analizarComando(const std::string& comando) {
         std::string campo;
 
 
-        TablaHashCampo tablaCampos;
+//        TablaHashCampo tablaCampos ;
 
         // Extraemos cada palabra de la cadena
-        int contador;
+        int contador=0;
         while (ss >> campo) {
             // Eliminamos la coma al final del campo, si es que existe
             if (campo.back() == ',') {
@@ -49,21 +52,25 @@ void analizarComando(const std::string& comando) {
 
             std::cout << "Campo: " << campo << std::endl;
 
-            tablaCampos.agregarCampo(campo);
+           // tablaCampos.agregarCampo(campo);
 
+            tablaGrupo.agregarGrupo(nombreGrupo,campo);
             //aca lo metemos a una lista
             }
 
             //agregamos el grupo a la tabla con su nombre y su tabla de campos
-            tablaGrupo.agregarGrupo(nombreGrupo,&tablaCampos);
 
             contador++;
         }
 
+      //  tablaCampos.eliminarTodosCampos();
         // CREAR CONTACTOS
     } else if (regex_match(comando, matches, regexCrearContacto)) {
         string nombreGrupo = matches[1];
         string datos = matches[2];
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "-----------------------------------------------------------" << endl;
         cout << "Instruccion: Creacion de contacto" << endl;
         cout << "Nombre del grupo: " << nombreGrupo << endl;
         cout << "Datos del contacto: " << datos << endl;
@@ -75,24 +82,22 @@ void analizarComando(const std::string& comando) {
 
 
 
-    cout<<"Obteniendo tabla hash de cmapos del grupo"<<endl;
+    cout<<"Obteniendo tabla hash de cmapos del grupo: "<<nombreGrupo<<endl;
         TablaHashCampo* tablaCampoGrupo1=tablaGrupo.obtenerTablaCampo(nombreGrupo);
 
+        tablaCampoGrupo1->obtenerNombreCampos()->imprimir();
 
         cout<<"Obteniendo nombre de los campos"<<endl;
 
 
-        TablaHashCampo* tablaCampoGrupo = tablaGrupo.obtenerTablaCampo(nombreGrupo);
 
 
 
-            ListaCampos* listaCampos = tablaCampoGrupo->obtenerNombreCampos();
+            ListaCampos* listaCampos = tablaCampoGrupo1->obtenerNombreCampos();
 
-            cout<<"FUNCIONOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"<<endl<<endl;
+            cout<<endl<<endl<<"LISTA DE CAMPOS";
+            listaCampos->imprimir();
 
-           listaCampos->imprimir();
-
-            cout<<"FUNCIONOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"<<endl<<endl;
 
 
 
@@ -117,17 +122,22 @@ void analizarComando(const std::string& comando) {
 
                 std::cout << "Campo: " << campo << std::endl;
 
+
+
             camposGrupo->agregarCampo(listaCampos->obtenerCampo(c)->obtenerNombre(),campo);
-
-           
-
-
-            tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(c)->obtenerNombre())->insertar(camposGrupo,c);
 
 
             c++;
 
         }
+
+
+            tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(1)->obtenerNombre())->insertar(camposGrupo,1);
+
+
+      //  tablaCampoGrupo1->buscarCampo(listaCampos->obtenerCampo(1)->obtenerNombre())->imprimir();
+
+
 
 
         //  logica para guardar los datos en una Lista
@@ -145,9 +155,14 @@ void analizarComando(const std::string& comando) {
         // logica para realizar la busqueda
 
 
-        tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->imprimir();
+      //  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->imprimir();
 
-      cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
+        //con esto se grafica el arbol
+
+
+       cout<<"-------------------------------------------------------------"<<endl;
+
+        cout<<endl<<endl<<  tablaGrupo.obtenerTablaCampo(nombreGrupo)->buscarCampo(campo)->generarDot(nombreGrupo);
 
 
 
@@ -304,33 +319,55 @@ ListaCampos* campos2Grupo1 = new ListaCampos();
 */
 
 
-    string comando = "ADD NEW-GROUP grupo1 FIELDS (nombre STRING, apellido "
+    string comando = "ADD NEW-GROUP grupo2 FIELDS (nombre STRING, apellido "
                      "STRING, correo );";
 
 
 
-    string comando1 = "ADD CONTACT IN grupo1 FIELDS (Pedro, Alvarez, jlkdja@correo "
-                      ");";
-string comando11 = "ADD CONTACT IN grupo1 FIELDS (wicho, Alvarez, jlkdja@correo "
-                      ");";
-string comando12 = "ADD CONTACT IN grupo1 FIELDS (jsjsjs, xxx, jlkdja@correo "
-                      ");";
-string comando13 = "ADD CONTACT IN grupo1 FIELDS (dkaslkdlsa, lkdjslakda, jlkdja@correo "
-                      ");";
-string comando14 = "ADD CONTACT IN grupo1 FIELDS (gurr, jjjjjjs, jlkdja@correo "
-                      ");";
-string comando15 = "ADD CONTACT IN grupo1 FIELDS (aaaaaaaaaaaa, mmckml, jlkdja@correo "
-                      ");";
-
-
-    string comando2 = "FIND CONTACT IN grupo1 CONTACT-FIELD apellido=alvarez;";
-
-
-    cout<<comando<<endl;
     analizarComando(comando);
+    string comandogrupo = "ADD NEW-GROUP mamalon2 FIELDS (xd STRING, ape STRING, cor );";
+
+    analizarComando(comandogrupo);
+    cout<<comando<<endl;
+
+
+
+    string comando1 = "ADD CONTACT IN grupo2 FIELDS (Pedro, Alvarez, jlkdja@correo "
+                      ");";
 
     cout<<endl<<comando1<<endl;
     analizarComando(comando1);
+
+    string cg2 = "ADD CONTACT IN mamalon2 FIELDS (anaaaaa, xd, jlkdja@correo "
+                      ");";
+    analizarComando(cg2);
+
+    string cg22 = "ADD CONTACT IN mamalon2 FIELDS (olaaa, xaaaaa, jlkdja@correo "
+                      ");";
+    analizarComando(cg22);
+
+    string cg23 = "ADD CONTACT IN mamalon2 FIELDS (xdddddddddddd, xxxxxxxxx, jlkdja@correo "
+                      ");";
+    analizarComando(cg23);
+
+string comando11 = "ADD CONTACT IN grupo2 FIELDS (wicho, Alvarez, jlkdja@correo "
+                      ");";
+string comando12 = "ADD CONTACT IN grupo2 FIELDS (jsjsjs, xxx, jlkdja@correo "
+                      ");";
+string comando13 = "ADD CONTACT IN grupo2 FIELDS (dkaslkdlsa, lkdjslakda, jlkdja@correo "
+                      ");";
+string comando14 = "ADD CONTACT IN grupo2 FIELDS (gurr, jjjjjjs, jlkdja@correo "
+                      ");";
+string comando15 = "ADD CONTACT IN grupo2 FIELDS (aaaaaaaaaaaa, mmckml, jlkdja@correo "
+                      ");";
+
+
+    string comando2 = "FIND CONTACT IN grupo2 CONTACT-FIELD apellido=alvarez;";
+    string comandog22 = "FIND CONTACT IN mamalon2 CONTACT-FIELD apellidooo=alvarez;";
+
+
+
+
 
 cout<<endl<<comando11<<endl;
     analizarComando(comando11);
@@ -348,12 +385,16 @@ cout<<endl<<comando15<<endl;
 
     cout<<endl<<comando2<<endl<<endl;
     analizarComando(comando2);
+    analizarComando(comandog22);
 
 
 
 
 
 
+
+//Graficar graficar;
+// graficar.garficarEstructuraCompleta(tablaGrupo.obtenerNombreGrupos(),&tablaGrupo);
 
 
 

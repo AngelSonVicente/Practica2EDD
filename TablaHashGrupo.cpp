@@ -11,9 +11,7 @@
 using namespace std;
 
 TablaHashGrupo::TablaHashGrupo() {
-    for (int i = 0; i < TAMANO_TABLA; ++i) {
-        tabla[i] = nullptr; // Inicializamos cada posición con un puntero nulo
-    }
+
 }
 
 int TablaHashGrupo::funcionHash(const std::string& clave) {
@@ -21,17 +19,46 @@ int TablaHashGrupo::funcionHash(const std::string& clave) {
     for (size_t i = 0; i < clave.length(); ++i) {
         suma += clave[i] * (i + 1);
     }
-    return suma % TAMANO_TABLA;
+    cout<<"SUMA:  "<< suma;
+
+    return suma % (  TAMANO_TABLA-1);
 }
 
-void TablaHashGrupo::agregarGrupo(const std::string& nombreGrupo, TablaHashCampo* tablaCampo) {
+ListaCampos* nombreGrupos = new ListaCampos(); //SI JALA
+
+
+
+void TablaHashGrupo::agregarGrupo(const std::string& nombreGrupo, const std::string& nombreCampo) {
     int indice = funcionHash(nombreGrupo);
-    tabla[indice] = tablaCampo;
+    nombreGrupos->agregarCampo(nombreGrupo, "");
+    cout << endl << endl << "SE INGRESO GRUPO: " << nombreGrupo << "   AL INDICE: " << indice << endl <<"campo que se ingreso "<<nombreCampo<< endl;
+
+
+
+
+    cout << "lista de campos: " << endl;
+
+
+
+    cout << endl;
+
+//    tabla[indice] = TablaHashCampo(tablaCampo);  // Almacena una copia independiente de tablaCampo en la tabla de grupos
+
+    tabla[indice].agregarCampo(nombreCampo);
+
+}
+
+ListaCampos* TablaHashGrupo::obtenerNombreGrupos() {
+
+    return nombreGrupos;
 }
 
 TablaHashCampo* TablaHashGrupo::obtenerTablaCampo(const std::string& nombreGrupo) {
-    int indice = funcionHash(nombreGrupo);
-    return tabla[indice];
-}
 
+
+    int indice = funcionHash(nombreGrupo);
+    cout<<"IDNDICE DE TABLA HASH CAMPO: "<<indice<<" NOMBRE GRUPO:" <<nombreGrupo<<endl<<endl<<endl;
+
+    return &tabla[indice];
+}
 

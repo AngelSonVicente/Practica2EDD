@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Practica2EDD.dir/Campo.cpp.obj.d"
   "CMakeFiles/Practica2EDD.dir/Contacto.cpp.obj"
   "CMakeFiles/Practica2EDD.dir/Contacto.cpp.obj.d"
+  "CMakeFiles/Practica2EDD.dir/Graficar.cpp.obj"
+  "CMakeFiles/Practica2EDD.dir/Graficar.cpp.obj.d"
   "CMakeFiles/Practica2EDD.dir/ListaCampos.cpp.obj"
   "CMakeFiles/Practica2EDD.dir/ListaCampos.cpp.obj.d"
   "CMakeFiles/Practica2EDD.dir/TablaHashCampo.cpp.obj"

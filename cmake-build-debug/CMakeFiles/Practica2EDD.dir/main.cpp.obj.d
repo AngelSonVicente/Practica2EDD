@@ -193,4 +193,4 @@ CMakeFiles/Practica2EDD.dir/main.cpp.obj: C:\EDD\Practica2EDD\main.cpp \
  C:\EDD\Practica2EDD\ArbolAVL.h C:\EDD\Practica2EDD\Contacto.h \
  C:\EDD\Practica2EDD\ListaCampos.h C:\EDD\Practica2EDD\Campo.h \
  C:\EDD\Practica2EDD\TablaHashCampo.h \
- C:\EDD\Practica2EDD\TablaHashGrupo.h
+ C:\EDD\Practica2EDD\TablaHashGrupo.h C:\EDD\Practica2EDD\Graficar.h

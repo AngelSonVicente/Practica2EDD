@@ -39,13 +39,11 @@ public:
 
     NodoAVL *insertarRecursivo(NodoAVL *nodo, ListaCampos *campos, int indice);
 
+    string generarDot();
 
-
-
+    void generarDotRecursivo(stringstream &ss, NodoAVL *nodo);
 
     string generarDot(const string &nombreArbol);
-
-    void generarDotRecursivo(stringstream &ss, NodoAVL *nodo, const string &nombreRaiz);
 };
 
 #endif

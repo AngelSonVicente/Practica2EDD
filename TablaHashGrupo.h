@@ -13,15 +13,19 @@ class TablaHashGrupo {
 
 private:
     static const int TAMANO_TABLA = 20;
-    TablaHashCampo* tabla[TAMANO_TABLA];
+    TablaHashCampo tabla[TAMANO_TABLA];
 
     int funcionHash(const std::string& clave);
 
 public:
     TablaHashGrupo();
-    void agregarGrupo(const std::string& nombreGrupo, TablaHashCampo* tablaCampo);
+
     TablaHashCampo* obtenerTablaCampo(const std::string& nombreGrupo);
 
+    ListaCampos *obtenerNombreGrupos();
+
+
+    void agregarGrupo(const string &nombreGrupo, const string &nombreCampo);
 };
 
 

@@ -16,4 +16,6 @@ add_executable(Practica2EDD main.cpp
         Campo.h
         ListaCampos.cpp
         ListaCampos.h
+        Graficar.cpp
+        Graficar.h
 )
